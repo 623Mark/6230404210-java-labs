@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6ff378fa-ecbb-47a6-a934-467633b20ac1" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ProjectId" id="1lxN3EZ9dIMMAP6Sdha7ZNf1IZk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ff378fa-ecbb-47a6-a934-467633b20ac1" name="Default Changelist" comment="" />
+      <created>1608534580286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608534580286</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="303" y="112" width="1089" height="712" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608535387939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="303" y="112" width="1089" height="712" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1608535387939" />
+    <state x="554" y="219" key="FileChooserDialogImpl" timestamp="1608536248720">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="554" y="219" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608536248720" />
+    <state x="482" y="327" key="com.intellij.ide.util.TipDialog" timestamp="1608536234483">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="482" y="327" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1608536234483" />
+  </component>
+</project>
