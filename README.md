@@ -2,7 +2,8 @@
 For learning oop java via lab.
 
 Name: Chanon Buathan                        
-ID: 623040421-0     Section: 1
+ID: 623040421-0     
+Section: 1
 
 Disclaimer : All the works in folder "623".
 
