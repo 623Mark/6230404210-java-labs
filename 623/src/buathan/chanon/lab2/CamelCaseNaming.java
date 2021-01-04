@@ -23,17 +23,17 @@ public class CamelCaseNaming {
             // and used (1) for skip counting the first one letter in contrast start (skip-1) and going on to the rest.
             String firstLetter = convertOne.substring(0,1);
             String remainLetter = convertOne.substring(1);
-            String first = firstLetter.toUpperCase()+remainLetter.toLowerCase();
+            String first = firstLetter.toUpperCase() + remainLetter.toLowerCase();
 
             // Did the same things to args[1]
             String secondLetter = convertTwo.substring(0,1);
             String remainScLetter = convertTwo.substring(1);
-            String second = secondLetter.toUpperCase()+remainScLetter.toLowerCase();
+            String second = secondLetter.toUpperCase() + remainScLetter.toLowerCase();
 
             // concatenate which used + .
-            System.out.println("The first word is "+args[0]);
-            System.out.println("The second word is "+args[1]);
-            System.out.println("The concatenate with camel case is "+ first + second);
+            System.out.println("The first word is " + args[0]);
+            System.out.println("The second word is " + args[1]);
+            System.out.println("The concatenate with camel case is " + first + second);
         }
 
     }
