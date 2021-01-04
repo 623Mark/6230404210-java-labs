@@ -12,12 +12,13 @@ package buathan.chanon.lab2;
 
 public class ChangeMachine {
     public static void main(String[] args) {
+        
         // Condition if for args < 0 in other words (args can not becomes negative number).
         if (args.length != 4)  {
-            //&& (args[0]<=0 || )
+            
             System.err.println("ChangeMachine <1-baht coins> <2-baht coins> <5-baht coins> <10-baht coins>");
+            
         } else {
-            // String firstCash = args[0], secondCash = args[1], thirdCash = args[2], fourthCash = args[3];
 
             // Parsing String as args to Integer method.
             int oneCoin = Integer.parseInt(args[0]);
@@ -26,7 +27,6 @@ public class ChangeMachine {
             int tenCoin = Integer.parseInt(args[3]);
 
             // Calculate totalCash from coins we received from args method.
-
             int tenCash = tenCoin * 10;
             int fiveCash = fiveCoin * 5;
             int twoCash = twoCoin * 2;
