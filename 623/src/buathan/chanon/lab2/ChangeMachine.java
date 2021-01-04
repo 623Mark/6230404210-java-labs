@@ -27,31 +27,31 @@ public class ChangeMachine {
 
             // Calculate totalCash from coins we received from args method.
 
-            int tenCash = tenCoin*10;
-            int fiveCash = fiveCoin*5;
-            int twoCash = twoCoin*2;
+            int tenCash = tenCoin * 10;
+            int fiveCash = fiveCoin * 5;
+            int twoCash = twoCoin * 2;
             int oneCash = oneCoin;
 
             int totalCash = oneCash + twoCash + fiveCash + tenCash;
 
             // Calculate return cash method.
-            int thousandCash = totalCash/1000;
-            int fiveHundredCash = (totalCash%1000)/500;
-            int oneHundredCash = (((totalCash%1000)%500)/100);
-            int twentyCash = (((totalCash%1000)%500)%100)/20;
-            int remainCash = (((totalCash%1000)%500)%100)%20;
+            int thousandCash = totalCash / 1000;
+            int fiveHundredCash = ( totalCash % 1000 ) / 500;
+            int oneHundredCash = ( ( ( totalCash % 1000 ) % 500 ) / 100 );
+            int twentyCash = ( ( ( totalCash % 1000) % 500 ) % 100 ) / 20;
+            int remainCash = ( ( ( totalCash % 1000) % 500 ) % 100 ) % 20;
 
-            System.out.println("1-baht coins : "+ oneCash);
-            System.out.println("2-baht coins : "+ twoCoin);
-            System.out.println("5-baht coins : "+ fiveCoin);
-            System.out.println("10-baht coins : "+tenCoin);
-            System.out.println("Total amount : "+totalCash);
+            System.out.println("1-baht coins : " + oneCash);
+            System.out.println("2-baht coins : " + twoCoin);
+            System.out.println("5-baht coins : " + fiveCoin);
+            System.out.println("10-baht coins : " + tenCoin);
+            System.out.println("Total amount : " + totalCash);
 
-            System.out.println("1,000-baht bill : "+ thousandCash);
-            System.out.println("500-baht bill : "+ fiveHundredCash);
-            System.out.println("100-baht bill : "+ oneHundredCash);
-            System.out.println("20-baht bill : "+ twentyCash);
-            System.out.println("Money remain : "+ remainCash);
+            System.out.println("1,000-baht bill : " + thousandCash);
+            System.out.println("500-baht bill : " + fiveHundredCash);
+            System.out.println("100-baht bill : " + oneHundredCash);
+            System.out.println("20-baht bill : " + twentyCash);
+            System.out.println("Money remain : " + remainCash);
         }
     }
 }
