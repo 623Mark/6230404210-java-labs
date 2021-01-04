@@ -21,6 +21,7 @@ public class PrimitiveDataType {
         boolean myBool = true;                      // Stores true or false values
         // ref for all detail above from " https://www.w3schools.com/java/java_data_types.asp "
         // String myText = "Hello";
+        
         // Represent the eight primitive data types in Java.
         System.out.println(myBool);
         System.out.println(myShort);
