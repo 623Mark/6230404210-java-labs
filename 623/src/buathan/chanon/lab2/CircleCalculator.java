@@ -20,8 +20,9 @@ public class CircleCalculator {
         } else {
             String inputRadius = args[0];
             float radius = Float.parseFloat(inputRadius);
-            float circleArea = (float) (radius*radius*Math.PI);
-            float perimeter = (float) (2*radius*Math.PI);
+            float circleArea = (float) (radius * radius * Math.PI);
+            float perimeter = (float) (2 * radius * Math.PI);
+            // from circle formula => 1. Circle Area = (Pi) * r * r  2. Circle Perimeter = 2 * (Pi) * r  ; r = radius
             // ("%.2f", How to print a float with 2 decimal places in Java?
 
             /*
@@ -38,7 +39,7 @@ public class CircleCalculator {
             double twoDecimalperimeter = bdPerimeter.doubleValue();
 
             System.out.println("An area of a circle with radius of " + radius + " is " + twoDecimalcircle);
-            System.out.println("A circumference is "+twoDecimalperimeter);
+            System.out.println("A circumference is " + twoDecimalperimeter);
         }
     }
 }
