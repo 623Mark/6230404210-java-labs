@@ -23,13 +23,7 @@ public class CircleCalculator {
             float circleArea = (float) (radius * radius * Math.PI);
             float perimeter = (float) (2 * radius * Math.PI);
             // from circle formula => 1. Circle Area = (Pi) * r * r  2. Circle Perimeter = 2 * (Pi) * r  ; r = radius
-            // ("%.2f", How to print a float with 2 decimal places in Java?
-
-            /*
-            float twoDecimal
-            System.out.println("An area of a circle with radius of " + radius + " is " + "%1.2f", circleArea);
-            System.out.println("A circumference is ");
-            */
+            // ref : ("%.2f", How to print a float with 2 decimal places in Java? Stackoverflow
 
             // Big decimal method with setScale used for print a float with 2(from setScale) decimal.
             BigDecimal bdArea = new BigDecimal(circleArea).setScale(2, RoundingMode.HALF_UP);
