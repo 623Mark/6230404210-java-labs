@@ -17,9 +17,9 @@ public class Patient {
             String patientName = args[0], patientAge = args[1], country = args[2];
             // Format string
             //System.out.printf("Patient's name is %s \n Patient's age is %s \n and just come from %s", patientName, patientAge, country);
-            System.out.println("Patient's name is "+patientName);
-            System.out.println("Patient's age is "+patientAge);
-            System.out.println(patientName+" comes from "+country);
+            System.out.println("Patient's name is " + patientName);
+            System.out.println("Patient's age is " + patientAge);
+            System.out.println(patientName+" comes from " + country);
         }
 
     }
