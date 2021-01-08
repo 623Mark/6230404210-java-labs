@@ -14,12 +14,17 @@ public class Patient {
         if (args.length != 3){
             System.err.println("Patient <patient name><patient age><country>");
         } else {
-            String patientName = args[0], patientAge = args[1], country = args[2];
+            String patientName = args[0], patientAge = args[1], patientCountry = args[2];
+            /*
+             My curiosity is could it be better to use the less code in our code?
+             or is it readable and easy too organize if separated each variables.
+            */
+
             // Format string
-            //System.out.printf("Patient's name is %s \n Patient's age is %s \n and just come from %s", patientName, patientAge, country);
+            //System.out.printf("Patient's name is %s \n Patient's age is %s \n and just come from %s", patientName, patientAge, patientCountry);
             System.out.println("Patient's name is " + patientName);
             System.out.println("Patient's age is " + patientAge);
-            System.out.println(patientName+" comes from " + country);
+            System.out.println(patientName+" comes from " + patientCountry);
         }
 
     }
