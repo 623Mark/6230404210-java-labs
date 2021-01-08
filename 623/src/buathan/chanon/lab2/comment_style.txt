@@ -1,0 +1,17 @@
+CamelCaseNaming
+    - convertOne should be something more meaningful for example firstArgument
+    - args[0] at the bottom should be the variable you already defined.
+    - first should be like firstWord
+
+ChangeMachine
+    - oneCoin should be oneBahtCoin. Same with the other variables.
+    - tenCash sholuld be more meaningful name like tenBahtBill
+
+CircleCalculator
+    - perimeter should be circumference
+    - twoDecimalcircle should twoDecimalCircleArea. Similatly twoDecimalperimeter.
+
+Patient
+    - country should be patientCountry
+    - this line should be separated to three lines. String patientName = args[0], patientAge = args[1], country = args[2];
+
