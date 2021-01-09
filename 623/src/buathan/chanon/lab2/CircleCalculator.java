@@ -16,24 +16,25 @@ import java.math.RoundingMode;
 public class CircleCalculator {
     public static void main(String[] args) {
         if (args.length != 1){
-            System.err.println("CircleCalculator <radius of a circle>");
+            System.err.println( "CircleCalculator <radius of a circle>" );
         } else {
             String inputRadius = args[0];
             float radius = Float.parseFloat(inputRadius);
-            float circleArea = (float) (radius * radius * Math.PI);
-            float perimeter = (float) (2 * radius * Math.PI);
+            float circleArea = (float) ( Math.pow(radius, 2) * Math.PI );
+            float circumference = (float) (2 * radius * Math.PI);
+            // float perimeter = (float) (2 * radius * Math.PI);
             // from circle formula => 1. Circle Area = (Pi) * r * r  2. Circle Perimeter = 2 * (Pi) * r  ; r = radius
-            // ref : ("%.2f", How to print a float with 2 decimal places in Java? Stackoverflow
 
+            // ref : ("%.2f", How to print a float with 2 decimal places in Java? Stackoverflow
             // Big decimal method with setScale used for print a float with 2(from setScale) decimal.
             BigDecimal bdArea = new BigDecimal(circleArea).setScale(2, RoundingMode.HALF_UP);
-            double twoDecimalcircle = bdArea.doubleValue();
+            double twoDecimalCircleArea = bdArea.doubleValue();
 
-            BigDecimal bdPerimeter = new BigDecimal(perimeter).setScale(2, RoundingMode.HALF_UP);
-            double twoDecimalperimeter = bdPerimeter.doubleValue();
+            BigDecimal bdCircumfer = new BigDecimal(circumference).setScale(2, RoundingMode.HALF_UP);
+            double twoDecimalCircumfer = bdCircumfer.doubleValue();
 
-            System.out.println("An area of a circle with radius of " + radius + " is " + twoDecimalcircle);
-            System.out.println("A circumference is " + twoDecimalperimeter);
+            System.out.println("An area of a circle with radius of " + radius + " is " + twoDecimalCircleArea);
+            System.out.println("A circumference is " + twoDecimalCircumfer);
         }
     }
 }
