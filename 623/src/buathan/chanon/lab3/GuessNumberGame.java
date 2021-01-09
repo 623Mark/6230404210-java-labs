@@ -8,8 +8,9 @@ public class GuessNumberGame {
         int maxNum = 10;
         int randomNum = minNum + (int)( Math.random() * ( ( maxNum - minNum ) + 1 ) );
         System.out.print("Please enter a guess (1-10):");
+        //String welcomeMessage = "Please enter a guess (1-10):";
 
-        int remainTry = 3;
+        int remainTry = 2;
         while (remainTry != 0){
             int inputNumGuessing;
             Scanner inputNum = new Scanner(System.in);
@@ -22,6 +23,7 @@ public class GuessNumberGame {
                     System.out.print("Please type a higher number! Number of remaining tries:" + remainTry);
         }
             remainTry--;
+                ++remainTry;
     inputNum.close();
         }
     }
