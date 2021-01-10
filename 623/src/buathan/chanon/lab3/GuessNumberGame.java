@@ -1,11 +1,9 @@
-package buathan.chanon.lab3;
-
-import java.util.Scanner;
-
-// GuessNumberGame, the game that's made by a simple rule.
-// User can enter some number between (1-10) and the program could calculate random number via using random function.
-// If it right user will give appreciate words with "Congratulations! That's correct" on the edge of the screen,
-// if not a little change passage will come out as that could be. Also showing the remaining guess.
+/**
+ GuessNumberGame, the game that's made by a simple rule.
+ User can enter some number between (1-10) and the program could calculate random number via using random function.
+ If it right user will give appreciate words with "Congratulations! That's correct" on the edge of the screen,
+ if not a little change passage will come out as that could be. Also showing the remaining guess.
+*/
 
 /*
  * Author: Chanon Buathan
@@ -13,6 +11,9 @@ import java.util.Scanner;
  * Sec: 1
  * Date: January 10, 2020
  */
+package buathan.chanon.lab3;
+
+import java.util.Scanner;
 
 public class GuessNumberGame {
     public static void main(String[] args) {
@@ -36,7 +37,7 @@ public class GuessNumberGame {
 
                 if ( inputNumGuessing == randomNum ) {
                     System.out.println("Congratulations! That's correct");
-                    break;
+                    break; // if user guess is valid, exit the loop.
                 } else if ( inputNumGuessing > randomNum ) {
                     System.out.print("Please type a lower number! Number of remaining tries:" + remainTry);
                     System.out.println("");
