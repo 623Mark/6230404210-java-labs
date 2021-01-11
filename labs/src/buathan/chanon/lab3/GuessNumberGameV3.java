@@ -1,5 +1,6 @@
 package buathan.chanon.lab3;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class GuessNumberGameV3 {
@@ -26,6 +27,23 @@ public class GuessNumberGameV3 {
     }
 
     public static void configGame() {
+        Scanner minNumRange = new Scanner( System.in );
+        Scanner maxNumRange = new Scanner( System.in );
+
+        //PrintWriter minNumInput = new PrintWriter(temp);
+        System.out.print("Enter the min and the max value:" + minNumRange.nextInt() + "" +minNumRange.hasNextLine());
+        //minNumRange.nextInt();
+        //minNumRange.hasNextLine();
+
+        maxNumRange.nextInt();
+        maxNumRange.hasNextLine();
+
+        int minNum = Integer.parseInt(String.valueOf(minNumRange));
+        System.out.print(minNum);
+        //NumberFormatException
+
+
+
 
     }
 
