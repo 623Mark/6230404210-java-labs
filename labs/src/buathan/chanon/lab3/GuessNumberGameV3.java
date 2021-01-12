@@ -11,7 +11,6 @@ public class GuessNumberGameV3 {
     static Scanner userScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String userInput = "";
 
         /**
          // tl;dr >>>> first| config range for user >> Enter the min and the max value:(minNum) (maxNum)
@@ -21,7 +20,7 @@ public class GuessNumberGameV3 {
          */
 
         while (true) {
-            if (configGame())
+            if ( configGame() )
                 break;
         }
 
@@ -30,7 +29,7 @@ public class GuessNumberGameV3 {
             playGames();
 
             System.out.println("If want to play again? type 'y' to continue or 'q' to quit:");
-            userInput = userScanner.nextLine();
+            String userInput = userScanner.nextLine();
             if ( !( userInput.equals("y") ) ) {
                 break;
             }
@@ -40,39 +39,38 @@ public class GuessNumberGameV3 {
 
 
     public static boolean configGame() {
-        String input1, input2, input3;
-        int firstTemp, secondTemp ,tryTemp;
-
         System.out.print("Enter the min and the max value:");
-        input1 = userScanner.nextLine();
-        input2 = userScanner.nextLine();
-        System.out.print("Enter the number of tries:");
-        input3 = userScanner.nextLine();
+        Scanner inputRangeNumber = new Scanner(System.in);
+        int firstNum, secondNum;
+        firstNum = inputRangeNumber.nextInt();
+        secondNum = inputRangeNumber.nextInt();
+        //Scanner input = userScanner.nextLine();
+        //int[] numbers = convertStringArrayToIntArray( input.split(", "));
+        //int numbers = Integer.parseInt();
+        //while(userScanner.hasNext()) {
+          //System.out.println(userScanner.nextInt());
+          //break;
+        //}
+        if (firstNum > secondNum) {
+            //replaceFirstNum = firstNum.replace(maxNum, firstNum);
+            maxNum = firstNum;
+            minNum = secondNum;
+            return true;
+            //System.out.println(replaceFirstNum);
 
-        //Scanner minNumRange = new Scanner(System.in);
-        //Scanner maxNumRange = new Scanner(System.in);
+            //System.out.println(secondNum);
 
-        //PrintWriter minNumInput = new PrintWriter(temp);
-
-        //minNumRange.hasNextLine();
-
-
-        //int minNum = Integer.parseInt(String.valueOf(minNumRange));
-        //NumberFormatException
-        try {
-            firstTemp = Integer.parseInt(input1);
-            secondTemp = Integer.parseInt(input2);
-            tryTemp = Integer.parseInt(input3);
-        } catch (NumberFormatException ex) {
-            if ( firstTemp > secondTemp) {
-                int firstTemp = userScanner.nextInt();
-                return firstTemp;
-            }
-            System.out.println("The guess number must be in the range "+ );
+        } else if (firstNum < secondNum) {
+            minNum = firstNum;
+            maxNum = secondNum;
+            return true;
         }
+        //int my = Integer.parseInt(String[] numbers);
+        //System.out.println(userScanner);
+        System.out.print("Enter the number of tries:");
+        //input3 = userScanner.nextLine();
 
-
-
+    return true;
     }
 
     public static void genAnswer() {
