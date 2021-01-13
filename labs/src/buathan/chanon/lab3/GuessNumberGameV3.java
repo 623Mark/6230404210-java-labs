@@ -55,6 +55,7 @@ public class GuessNumberGameV3 {
     public static boolean configGame() {
         System.out.print("Enter the min and the max value:");
         Scanner inputRangeNumber = new Scanner(System.in);
+
         int firstConfigNum, secondConfigNum, tryConfigNum;
         firstConfigNum = inputRangeNumber.nextInt();
         secondConfigNum = inputRangeNumber.nextInt();
@@ -83,27 +84,37 @@ public class GuessNumberGameV3 {
         }
 
         public static void playGames () {
+        //"The guess number must be in the range " + min + " and " + max
             newRemainTry = remainTry;
             Scanner inputNum = new Scanner(System.in);
+
             while (newRemainTry > 0) {
-                newRemainTry--;
+
                 int inputNumGuessing;
-                String welcomeGuessText = "Please enter a guess (1-10):";
+                String welcomeGuessText = "Please enter a guess ("+minNum+"-"+maxNum+"):";
                 System.out.print(welcomeGuessText);
                 inputNumGuessing = inputNum.nextInt();
                 inputNum.hasNextLine();
 
+                if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) ) {
+                    System.out.println("The guess number must be in the range " + minNum + " and " + maxNum);
+                    //newRemainTry++;
+                    continue;
+                }
+
+                newRemainTry--;
                 if (inputNumGuessing == correctNum) {
                     System.out.println("Congratulations! That's correct");
                     break;
-                } else if (inputNumGuessing > correctNum) {
+                } else if ( (inputNumGuessing > correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum) ) {
                     System.out.print("Please type a lower number! Number of remaining tries:" + newRemainTry);
                     System.out.println("");
                     continue;
-                } else if (inputNumGuessing < correctNum) {
+                } else if ( (inputNumGuessing < correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum)) {
                     System.out.print("Please type a higher number! Number of remaining tries:" + newRemainTry);
                     System.out.println("");
                     continue;
+
                 }
             }
         }
