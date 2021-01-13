@@ -1,3 +1,16 @@
+/**
+ GuessNumberGameV3 the improve program from the GuessNumberGameV2
+ The program will generate number between the range that "user input for ( minimum, maximum ) numbers and remain guess"
+ If user input number invalid by out of range numbers, the program will respond in text "The guess number must be in the range ..." .
+ The program can let's user play again by type "y" to run the guessing with reset remain guess.
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: January 13, 2020
+ */
 package buathan.chanon.lab3;
 
 import java.util.Scanner;
@@ -7,35 +20,37 @@ public class GuessNumberGameV3 {
     static int minNum = 1;
     static int maxNum = 10;
     static int remainTry = 3;
+    static int newRemainTry; // For using reset remainTry while loop via input "y" to play again.
     static Scanner userScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         /**
-         // tl;dr >>>> first| config range for user >> Enter the min and the max value:(minNum) (maxNum)
+         // tl;dr idea >>>> first| config range for user >> Enter the min and the max value:(minNum) (maxNum)
          // config tries >> Enter the number of tries:(remainTry)
          // if user put nums outside range >> The guess number must be in the range (minNum) and (maxNum)
          // if remaining try alr out, ask >> If want to play again? type 'y' to continue or 'q' to quit:(newInstance check input from keyboard)
          */
 
+        // Running configGame() and after received "static int variable" then exit this loop.
         while (true) {
             if ( configGame() )
                 break;
         }
 
+        //
         while (true) {
             genAnswer();
             playGames();
 
             System.out.print("If want to play again? type 'y' to continue or 'q' to quit:");
             String userInput = userScanner.nextLine();
-            if ( !( userInput.equals("y")|| userInput.equals("Y") ) )  {
+            if ( !userInput.equals("y") )  {
                 break;
             }
         }
         userScanner.close();
     }
-
 
     public static boolean configGame() {
         System.out.print("Enter the min and the max value:");
@@ -47,18 +62,18 @@ public class GuessNumberGameV3 {
         System.out.print("Enter the number of tries:");
         Scanner inputTryNumber = new Scanner(System.in);
         tryConfigNum = inputTryNumber.nextInt();
+        remainTry = tryConfigNum;
 
         if (firstConfigNum > secondConfigNum) {
             maxNum = firstConfigNum;
             minNum = secondConfigNum;
-            remainTry = tryConfigNum;
             return true;
 
         } else if (firstConfigNum < secondConfigNum) {
             minNum = firstConfigNum;
             maxNum = secondConfigNum;
-            remainTry = tryConfigNum;
             return true;
+
         }
             return true;
         }
@@ -68,9 +83,10 @@ public class GuessNumberGameV3 {
         }
 
         public static void playGames () {
+            newRemainTry = remainTry;
             Scanner inputNum = new Scanner(System.in);
-            while (remainTry > 0) {
-                remainTry--;
+            while (newRemainTry > 0) {
+                newRemainTry--;
                 int inputNumGuessing;
                 String welcomeGuessText = "Please enter a guess (1-10):";
                 System.out.print(welcomeGuessText);
@@ -81,11 +97,11 @@ public class GuessNumberGameV3 {
                     System.out.println("Congratulations! That's correct");
                     break;
                 } else if (inputNumGuessing > correctNum) {
-                    System.out.print("Please type a lower number! Number of remaining tries:" + remainTry);
+                    System.out.print("Please type a lower number! Number of remaining tries:" + newRemainTry);
                     System.out.println("");
                     continue;
                 } else if (inputNumGuessing < correctNum) {
-                    System.out.print("Please type a higher number! Number of remaining tries:" + remainTry);
+                    System.out.print("Please type a higher number! Number of remaining tries:" + newRemainTry);
                     System.out.println("");
                     continue;
                 }
