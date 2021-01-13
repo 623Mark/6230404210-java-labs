@@ -32,17 +32,19 @@ public class GuessNumberGameV3 {
          // if remaining try alr out, ask >> If want to play again? type 'y' to continue or 'q' to quit:(newInstance check input from keyboard)
          */
 
-        // Running configGame() and after received "static int variable" then exit this loop.
+        // Running class configGame() and after received all "static int variable" exit the configGame().
         while (true) {
             if ( configGame() )
                 break;
         }
 
-        //
+        // Running almost whole program method: genAnswer(), playGames(), ask user to play again or exit the program.
         while (true) {
             genAnswer();
             playGames();
 
+            // If user type other String(I'm not using char) except y(only lowercase) the program will exit the loop.
+            // ( || userInput.equals("Y")
             System.out.print("If want to play again? type 'y' to continue or 'q' to quit:");
             String userInput = userScanner.nextLine();
             if ( !userInput.equals("y") )  {
@@ -52,10 +54,13 @@ public class GuessNumberGameV3 {
         userScanner.close();
     }
 
+    // Receive boolean return from comparable max, min numbers which always true,
+    // used boolean for input while (true) condition in configGame().
     public static boolean configGame() {
         System.out.print("Enter the min and the max value:");
         Scanner inputRangeNumber = new Scanner(System.in);
 
+        // Create variable which return "static int minNum = 1, maxNum = 10, remainTry = 3";
         int firstConfigNum, secondConfigNum, tryConfigNum;
         firstConfigNum = inputRangeNumber.nextInt();
         secondConfigNum = inputRangeNumber.nextInt();
@@ -65,6 +70,8 @@ public class GuessNumberGameV3 {
         tryConfigNum = inputTryNumber.nextInt();
         remainTry = tryConfigNum;
 
+        // Compare "number from configs" that which one is higher and another is lower, return int to variable
+        // minNum, maxNum and boolean true to configGame().
         if (firstConfigNum > secondConfigNum) {
             maxNum = firstConfigNum;
             minNum = secondConfigNum;
@@ -84,7 +91,7 @@ public class GuessNumberGameV3 {
         }
 
         public static void playGames () {
-        //"The guess number must be in the range " + min + " and " + max
+            // New instance used to counting remain try which is reset starting the same from user input("y").
             newRemainTry = remainTry;
             Scanner inputNum = new Scanner(System.in);
 
@@ -96,12 +103,15 @@ public class GuessNumberGameV3 {
                 inputNumGuessing = inputNum.nextInt();
                 inputNum.hasNextLine();
 
+                // Not counting loop which invalid, if user guessed.
+                // Condition inputNum showing not "out of range" which compare user configs.
                 if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) ) {
                     System.out.println("The guess number must be in the range " + minNum + " and " + maxNum);
-                    //newRemainTry++;
                     continue;
                 }
 
+                // Counter loop which user guess,
+                // decreasing remain try numbers every times, after user input guess number.
                 newRemainTry--;
                 if (inputNumGuessing == correctNum) {
                     System.out.println("Congratulations! That's correct");
