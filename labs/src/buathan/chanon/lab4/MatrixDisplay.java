@@ -16,9 +16,9 @@ public class MatrixDisplay {
         showMatrixByColumn();
 
         showMatrixByRowBackward();
-        showMatrixByColumnBackward();
+        //showMatrixByColumnBackward();
 
-        showMatrixByRowZigzag();
+        //showMatrixByRowZigzag();
 
     }
 
@@ -27,6 +27,7 @@ public class MatrixDisplay {
         System.out.println("Enter number of row then number of column of a matrix:");
         rowDimension = inputNum.nextInt();
         columnDimension = inputNum.nextInt();
+
         while (rowDimension <= 0 || columnDimension <= 0)
         {
             System.out.println("Number of column and row must be positive.");
@@ -34,7 +35,6 @@ public class MatrixDisplay {
             columnDimension = inputNum.nextInt();
             }
 
-        //
         matrix = new int[rowDimension][columnDimension];
         System.out.println("Enter your matrix by row.");
         for (int i = 0; i < rowDimension; i++ )
@@ -75,27 +75,40 @@ public class MatrixDisplay {
     public static void showMatrixByColumn()
     {
         System.out.print("Show matrix by columns : ");
-
-        for (int i = 0; i < rowDimension; i++)
-        {
-            for (int j = 0; j < columnDimension; j++)
+        if ( rowDimension < columnDimension) {
+            for (int i = 0; i < columnDimension; i++)
             {
-                //int[][] matrixColumn = new int[j][i];
-                //matrixColumn[j][i] = matrix[i][j];
-                System.out.print( matrix[j][i] + " ");
+                for (int j = 0; j < rowDimension; j++)
+                {
+                    System.out.print(matrix[j][i] + " ");
+                }
+            }
+        } else if ( rowDimension > columnDimension) {
+            for (int i = 0; i < rowDimension; i++)
+            {
+                for (int j = 0; j < columnDimension; j++)
+                {
+                    System.out.print(matrix[j][i] + " ");
+                }
             }
         }
+
         System.out.println();
     }
 
     public static void showMatrixByRowBackward()
     {
+        //int columnDimension = x;
         System.out.print("Show matrix by rows backward : ");
         for (int i = 0; i < rowDimension; i++)
         {
             for (int j = 0; j < columnDimension; j++)
             {
-                System.out.print( matrix[i][j] + " ");
+                int temp =  matrix[j][i];
+                matrix[j][i] = matrix[j][columnDimension - i -1];
+                matrix[j][columnDimension - i - 1] = temp;
+                //System.out.print( matrix[(rowDimension - i - 1) - j][(columnDimension - j - 1)] + " ");
+                System.out.print(temp + " ");
             }
         }
     }
@@ -122,5 +135,6 @@ public class MatrixDisplay {
             }
         }
     }
+
 }
 
