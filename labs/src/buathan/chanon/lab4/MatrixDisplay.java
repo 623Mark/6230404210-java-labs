@@ -18,7 +18,7 @@ public class MatrixDisplay
         showMatrixByColumn();
 
         showMatrixByRowBackward();
-        showMatrixByColumnBackward();
+        //showMatrixByColumnBackward();
 
         showMatrixByRowZigzag();
 
@@ -121,16 +121,16 @@ public class MatrixDisplay
     public static void showMatrixByColumnBackward() {
         System.out.print("Show matrix by column backward : ");
 
-        for (int i = 0; i < rowDimension; i++)
-        {
-            for (int j = 0; j < columnDimension; j++)
-            {
+        for (int i = 0; i < columnDimension; i++) {
+            for (int j = 0; j < rowDimension; j++) {
                 //System.out.print( matrix[columnDimension -1 -j][rowDimension -1 -i] + " ");
-                System.out.print( matrix[columnDimension - j -1][rowDimension - i - 1] + " ");
+                //int[][] mat = new int[columnDimension -1 -i][rowDimension - 1 -j];
+                //matrix[columnDimension - j - 1][rowDimension - i - 1 ] = mat;
+                System.out.print(matrix[j - 1][i - 1] + " ");
             }
         }
         System.out.println();
-
+    }
         /*
         int mat[][] = new int[3][3];
         int row = 0;
@@ -148,20 +148,23 @@ public class MatrixDisplay
     }
 */
 
-    }
 
     public static void showMatrixByRowZigzag()
     {
         System.out.print("Show matrix by rows zigzag : ");
-        for (int i = 0; i < rowDimension; i++)
+        for (int k = 0; k < rowDimension; k++)
         {
-            for (int j = 0; j < columnDimension; j++)
+            for (int i = 0; i < columnDimension; i++)
             {
-                System.out.print( matrix[i][j] + " ");
+                System.out.print(matrix[k][i] + " ");
+            }
+            k++;
+            for (int i = columnDimension - 1; i > 0; i--)
+            {
+                System.out.print(matrix[k][i] + " ");
             }
         }
-        System.out.println();
-    }
-
+            System.out.println();
+        }
 }
 
