@@ -1,3 +1,10 @@
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: January 24, 2020
+ */
+
 package buathan.chanon.lab4;
 
 import java.util.Scanner;
@@ -18,7 +25,7 @@ public class MatrixDisplay
         showMatrixByColumn();
 
         showMatrixByRowBackward();
-        //showMatrixByColumnBackward();
+        showMatrixByColumnBackward();
 
         showMatrixByRowZigzag();
 
@@ -121,12 +128,12 @@ public class MatrixDisplay
     public static void showMatrixByColumnBackward() {
         System.out.print("Show matrix by column backward : ");
 
-        for (int i = 0; i < columnDimension; i++) {
-            for (int j = 0; j < rowDimension; j++) {
+        for (int i = columnDimension - 1 ; i >= 0 ; i--) {
+            for (int j = rowDimension - 1 ; j >= 0 ; j--) {
                 //System.out.print( matrix[columnDimension -1 -j][rowDimension -1 -i] + " ");
                 //int[][] mat = new int[columnDimension -1 -i][rowDimension - 1 -j];
                 //matrix[columnDimension - j - 1][rowDimension - i - 1 ] = mat;
-                System.out.print(matrix[j - 1][i - 1] + " ");
+                System.out.print(matrix[j][i] + " ");
             }
         }
         System.out.println();
@@ -150,21 +157,28 @@ public class MatrixDisplay
 
 
     public static void showMatrixByRowZigzag()
+    // Two for loops, one for forward scanning and second for backward scanning.
     {
         System.out.print("Show matrix by rows zigzag : ");
+        try {
         for (int k = 0; k < rowDimension; k++)
         {
             for (int i = 0; i < columnDimension; i++)
             {
                 System.out.print(matrix[k][i] + " ");
             }
+
+
             k++;
             for (int i = columnDimension - 1; i > 0; i--)
             {
                 System.out.print(matrix[k][i] + " ");
             }
         }
+        } catch (ArrayIndexOutOfBoundsException ignored)
+        {
             System.out.println();
         }
+    }
 }
 
