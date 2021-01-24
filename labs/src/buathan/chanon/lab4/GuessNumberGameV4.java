@@ -66,7 +66,7 @@ public class GuessNumberGameV4 {
 
             } else if (userInput.equals("g"))
             {
-                specificGuess();
+                showSpecific();
                 return true;
             } else {
                 questionEndGame();
@@ -86,19 +86,20 @@ public class GuessNumberGameV4 {
         questionEndGame();
     }
 
-    public static void specificGuess()
+    public static void showSpecific()
     {
         int saveSpecificNum = 0;
         for (numGuesses = 0; numGuesses < inputNumArray; numGuesses++)
+        while (true)
         {
             System.out.println("Enter which guess in the range (1-" + inputNumArray + ")");
             saveSpecificNum = inputSpecificGuess.nextInt();
             if ( saveSpecificNum < 1 || saveSpecificNum > inputNumArray)
             {
-                specificGuess();
+                showSpecific();
 
-            } else{
-                System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum -1]);
+            } else {
+                System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum - 1]);
                 break;
             }
         }
@@ -155,8 +156,7 @@ public class GuessNumberGameV4 {
             String welcomeGuessText = "Please enter a guess ("+minNum+"-"+maxNum+"):";
             System.out.print(welcomeGuessText);
             inputNumGuessing = inputNum.nextInt();
-            //
-            inputNum.hasNextLine();
+            //inputNum.hasNextLine();
 
             if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) )
             {
