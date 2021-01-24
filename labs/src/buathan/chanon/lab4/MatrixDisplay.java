@@ -2,12 +2,14 @@ package buathan.chanon.lab4;
 
 import java.util.Scanner;
 
-public class MatrixDisplay {
+public class MatrixDisplay
+{
     static int[][] matrix;
     static int rowDimension, columnDimension;
     static Scanner inputNum = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         inputMatrix();
         showMatrix();
@@ -16,9 +18,9 @@ public class MatrixDisplay {
         showMatrixByColumn();
 
         showMatrixByRowBackward();
-        //showMatrixByColumnBackward();
+        showMatrixByColumnBackward();
 
-        //showMatrixByRowZigzag();
+        showMatrixByRowZigzag();
 
     }
 
@@ -75,6 +77,7 @@ public class MatrixDisplay {
     public static void showMatrixByColumn()
     {
         System.out.print("Show matrix by columns : ");
+        /*
         if ( rowDimension < columnDimension) {
             for (int i = 0; i < columnDimension; i++)
             {
@@ -84,15 +87,15 @@ public class MatrixDisplay {
                 }
             }
         } else if ( rowDimension > columnDimension) {
-            for (int i = 0; i < rowDimension; i++)
+
+         */
+            for (int i = 0; i < columnDimension; i++)
             {
-                for (int j = 0; j < columnDimension; j++)
+                for (int j = 0; j < rowDimension; j++)
                 {
                     System.out.print(matrix[j][i] + " ");
                 }
             }
-        }
-
         System.out.println();
     }
 
@@ -104,13 +107,14 @@ public class MatrixDisplay {
         {
             for (int j = 0; j < columnDimension; j++)
             {
-                int temp =  matrix[j][i];
-                matrix[j][i] = matrix[j][columnDimension - i -1];
-                matrix[j][columnDimension - i - 1] = temp;
-                //System.out.print( matrix[(rowDimension - i - 1) - j][(columnDimension - j - 1)] + " ");
-                System.out.print(temp + " ");
+                //int temp =  matrix[j][i];
+                //matrix[j][i] = matrix[rowDimension][columnDimension - i - 1];
+                //matrix[j][columnDimension - i - 1] = temp;
+                ////System.out.print( matrix[(rowDimension - i - 1) - j][(columnDimension - j - 1)] + " ");
+                System.out.print(matrix[rowDimension -1 -i][columnDimension -1 -j] + " ");
             }
         }
+        System.out.println();
     }
 
     public static void showMatrixByColumnBackward()
@@ -120,10 +124,12 @@ public class MatrixDisplay {
         {
             for (int j = 0; j < columnDimension; j++)
             {
-                System.out.print( matrix[i][j] + " ");
+                System.out.print( matrix[rowDimension -j -1][columnDimension -i -1] + " ");
             }
         }
+        System.out.println();
     }
+
     public static void showMatrixByRowZigzag()
     {
         System.out.print("Show matrix by rows zigzag : ");
@@ -134,6 +140,7 @@ public class MatrixDisplay {
                 System.out.print( matrix[i][j] + " ");
             }
         }
+        System.out.println();
     }
 
 }
