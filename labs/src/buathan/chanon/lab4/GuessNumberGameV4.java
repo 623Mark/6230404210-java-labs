@@ -3,51 +3,109 @@ package buathan.chanon.lab4;
 import java.util.Scanner;
 
 public class GuessNumberGameV4 {
-    static int correctNum;
-    static int minNum = 1;
-    static int maxNum = 10;
-    static int remainTry = 3;
-    static int newRemainTry;
 
+    static int correctNum;
+    static int minNum = 0;
+    static int maxNum = 0;
+    static int newRemainTry;
     static int[] guesses;
     static int numGuesses = 0;
+    static int inputNumArray = 0;
+    static int counterTryLoop =0;
+
 
     static Scanner userScanner = new Scanner(System.in);
+    static Scanner inputTryNumber = new Scanner(System.in);
+    static Scanner inputNum = new Scanner(System.in);
+    static int inputNumGuessing;
+    static Scanner inputSpecificGuess = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //showGuesses();
-        while (true) {
-            if ( configGame() )
+
+        while (true)
+        {
+            if (configGame())
                 break;
         }
 
-        while (true) {
+        while (true)
+        {
             genAnswer();
             playGames();
+            if (true)
+            {
+                questionEndGame();
 
-            System.out.println("If want to play again? type 'y' to continue or 'q' to quit:");
-            System.out.println("Type 'a' to see all your guesses or 'g' to see a guess on a specific play.");
-
-            String userInput = userScanner.nextLine();
-            if ( userInput.equals("y") )  {
-                continue;
-            } else if ( userInput.equals("q") ) {
-                break;
-            } else if ( userInput.equals("a") ) {
-                showGuesses();
-                continue;
-            } else if ( userInput.equals("g") ) {
-
-                System.out.println("Enter which guess in the range (1-" + newRemainTry +")");
             } else {
-                configGame();
+                break;
             }
-
         }
-        userScanner.close();
     }
 
-    public static boolean configGame() {
+    public static boolean questionEndGame()
+    {
+
+        System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"+ "\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
+
+        String userInput = userScanner.nextLine();
+        while (true)
+        {
+            if (userInput.equals("y"))
+            {
+                counterTryLoop =0;
+                return true;
+
+            } else if (userInput.equals("q"))
+            {
+                System.exit(0);
+
+            } else if (userInput.equals("a"))
+            {
+                showGuesses();
+                return true;
+
+            } else if (userInput.equals("g"))
+            {
+                specificGuess();
+                return true;
+            } else {
+                questionEndGame();
+            }
+            return true;
+        }
+    }
+
+    public static void showGuesses()
+    {
+        for (int i = 0; i < inputNumArray; i++ )
+        {
+            //saveArray = specificArray[i];
+            System.out.print(guesses[i] + " ");
+        }
+        System.out.println();
+        questionEndGame();
+    }
+
+    public static void specificGuess()
+    {
+        int saveSpecificNum = 0;
+        for (numGuesses = 0; numGuesses < inputNumArray; numGuesses++)
+        {
+            System.out.println("Enter which guess in the range (1-" + inputNumArray + ")");
+            saveSpecificNum = inputSpecificGuess.nextInt();
+            if ( saveSpecificNum < 1 || saveSpecificNum > inputNumArray)
+            {
+                specificGuess();
+
+            } else{
+                System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum -1]);
+                break;
+            }
+        }
+    }
+
+    public static boolean configGame()
+    {
         System.out.print("Enter the min and the max value:");
         Scanner inputRangeNumber = new Scanner(System.in);
 
@@ -56,16 +114,17 @@ public class GuessNumberGameV4 {
         secondConfigNum = inputRangeNumber.nextInt();
 
         System.out.print("Enter the number of tries:");
-        Scanner inputTryNumber = new Scanner(System.in);
         tryConfigNum = inputTryNumber.nextInt();
-        remainTry = tryConfigNum;
+        counterTryLoop = tryConfigNum;
 
-        if (firstConfigNum > secondConfigNum) {
+        if (firstConfigNum > secondConfigNum)
+        {
             maxNum = firstConfigNum;
             minNum = secondConfigNum;
             return true;
 
-        } else if (firstConfigNum < secondConfigNum) {
+        } else if (firstConfigNum < secondConfigNum)
+        {
             minNum = firstConfigNum;
             maxNum = secondConfigNum;
             return true;
@@ -74,66 +133,62 @@ public class GuessNumberGameV4 {
         return true;
     }
 
-    public static void genAnswer () {
+    public static void genAnswer ()
+    {
 
         correctNum = minNum + (int) (Math.random() * ((maxNum - minNum) + 1));
     }
 
-    public static void playGames () {
-        newRemainTry = remainTry;
-        Scanner inputNum = new Scanner(System.in);
+    public static void playGames()
+    {
+        playGame();
+    }
 
-        while (newRemainTry > 0) {
-
-            int inputNumGuessing;
+    public static void playGame ()
+    {
+        int remainCounter = 1;
+        newRemainTry = remainCounter;
+        guesses = new int[counterTryLoop];
+        while (counterTryLoop != 0)
+        {
 
             String welcomeGuessText = "Please enter a guess ("+minNum+"-"+maxNum+"):";
             System.out.print(welcomeGuessText);
             inputNumGuessing = inputNum.nextInt();
+            //
             inputNum.hasNextLine();
 
-            if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) ) {
+            if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) )
+            {
                 System.out.println("The guess number must be in the range " + minNum + " and " + maxNum);
                 continue;
             }
 
-            newRemainTry--;
-            if (inputNumGuessing == correctNum) {
+            counterTryLoop--;
+            if (inputNumGuessing == correctNum)
+            {
                 System.out.println("Congratulations! That's correct");
+                guesses[inputNumArray] = inputNumGuessing;
+                inputNumArray++;
                 break;
 
-            } else if ( (inputNumGuessing > correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum) ) {
-                System.out.print("Please type a lower number! Number of remaining tries:" + newRemainTry);
+            } else if ( (inputNumGuessing > correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum) )
+            {
+                guesses[inputNumArray] = inputNumGuessing;
+                inputNumArray++;
+                System.out.print("Please type a lower number! Number of remaining tries:" + counterTryLoop);
                 System.out.println("");
                 continue;
 
-            } else if ( (inputNumGuessing < correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum)) {
-                System.out.print("Please type a higher number! Number of remaining tries:" + newRemainTry);
+            } else if ( (inputNumGuessing < correctNum) && (inputNumGuessing <= maxNum || inputNumGuessing >= minNum))
+            {
+                guesses[inputNumArray] = inputNumGuessing;
+                inputNumArray++;
+                System.out.print("Please type a higher number! Number of remaining tries:" + counterTryLoop);
                 System.out.println("");
                 continue;
 
             }
         }
     }
-    public static void showGuesses() {
-        playGames();
-        int[] guesses = inputNumGuessing;
-        //int[] num = inputNum;
-        //int[] guesses = inputNumGuessing.nextInt();
-        //inputNumGuessing.playGames();
-        playGames();
-        inputNumGuessing;
-        //Scanner inputNumGuessing = new Scanner(System.in);
-        for (Scanner it = inputNumGuessing; it.hasNextInt(); ) {
-            int numGuesses = it.nextInt();
-            System.out.print(numGuesses);
-        }
-
-        //this.inputNumGuessing = inputNumGuessing;
-        System.out.println(guesses);
-    }
-
-
 }
-
-
