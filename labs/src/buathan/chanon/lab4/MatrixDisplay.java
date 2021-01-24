@@ -125,11 +125,14 @@ public class MatrixDisplay
 
     // as column backward, condition was initial as column/row - 1 for starting at  the last index
     // [j][i] same as by column, which is switch from by row
-    public static void showMatrixByColumnBackward() {
+    public static void showMatrixByColumnBackward()
+    {
         System.out.print("Show matrix by column backward : ");
 
-        for (int i = columnDimension - 1 ; i >= 0 ; i--) {
-            for (int j = rowDimension - 1 ; j >= 0 ; j--) {
+        for (int i = columnDimension - 1 ; i >= 0 ; i--)
+        {
+            for (int j = rowDimension - 1 ; j >= 0 ; j--)
+            {
                 System.out.print(matrix[j][i] + " ");
             }
         }
@@ -140,13 +143,14 @@ public class MatrixDisplay
     public static void showMatrixByRowZigzag()
     {
         System.out.print("Show matrix by rows zigzag : ");
-        try {
-        for (int k = 0; k < rowDimension; k++)
+        try
         {
-            for (int i = 0; i < columnDimension; i++)
+            for (int k = 0; k < rowDimension; k++)
             {
-                System.out.print(matrix[k][i] + " ");
-            }
+                for (int i = 0; i < columnDimension; i++)
+                {
+                    System.out.print(matrix[k][i] + " ");
+                }
 
             k++;
             for (int i = columnDimension - 1; i > 0; i--)
