@@ -188,8 +188,9 @@ public class GuessNumberGameV5 {
             if ( saveSpecificNum < 1 || saveSpecificNum > inputNumArray)
             {
                 showSpecific();
+                break;
 
-            } else{
+            } else {
                 System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum -1]);
                 break;
             }

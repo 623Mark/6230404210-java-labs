@@ -119,7 +119,7 @@ public class GuessNumberGameV4 {
 
             } else {
                 System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum - 1]);
-                break;
+                questionEndGame();
             }
         }
     }
