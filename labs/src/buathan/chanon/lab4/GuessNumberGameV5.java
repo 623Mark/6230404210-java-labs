@@ -1,3 +1,10 @@
+/**
+ The GuessNumberGameV5, the program which provide user for having more option; end game questions asking for doing something as below.
+ after end game user can using follow words;
+ user type "v" for "see the result of Average all the number guessing, which save in array[] as guesses[]".
+ user type "m" for "Minimum guesses numbers, see the result of finding sort the number that is in condition the lowest number compare to other nums".
+ user type "x" for "Maximum guesses numbers, see the result of finding sort the number that is in condition the highest number compare to other nums"
+ */
 
 /*
  * Author: Chanon Buathan
@@ -21,22 +28,21 @@ public class GuessNumberGameV5 {
     static int inputNumArray = 0;
     static int counterTryLoop =0;
 
-    //static int[] sortMinNum;
-    //static int[] sortMaxNum;
+    // new variable averageGuess used to collect numbers user guessing as sum++
     static double averageGuess = 0;
     static int useToDivide;
 
+    // I may use one scanner in advantage,
+    // but my condolence I'm using it for keep considering what this scanner used for.
     static Scanner userScanner = new Scanner(System.in);
     static Scanner inputTryNumber = new Scanner(System.in);
     static Scanner inputNum = new Scanner(System.in);
     static int inputNumGuessing;
     static Scanner inputSpecificGuess = new Scanner(System.in);
-    //static Scanner inputMinArray = new Scanner(System.in);
-    //static Scanner inputMaxArray = new Scanner(System.in);
-
 
     public static void main(String[] args) {
 
+        // looping boolean
         while (true)
         {
             if (configGame())
@@ -65,6 +71,7 @@ public class GuessNumberGameV5 {
         String userInput = userScanner.nextLine();
         while (true)
         {
+            // check user input, added "v", "m", "x" .
             if (userInput.equals("y"))
             {
                 counterTryLoop =0;
@@ -107,10 +114,9 @@ public class GuessNumberGameV5 {
         }
     }
 
-
+    // calculate guess average by (sum of all guesses user input) / (numbers of try user guesses)
     public static void guessAverage()
     {
-    //guesses = new int[guesses.length];
     for (int k = 1; k < guesses.length; k++)
         {
         averageGuess +=  guesses[k];
@@ -118,33 +124,32 @@ public class GuessNumberGameV5 {
         averageGuess = averageGuess / useToDivide;
         System.out.println(" Average = " + averageGuess);
         System.out.println();
+        // for valid array, using new array again in method ;prevent array out of bound using the same array
         questionEndGame();
     }
 
-    // initialize sortMinNum start using index 0 that < minNum and looping +1 ++
+    // initialize sortMinNum start using index[0](first num) that < minNum and looping +1 ++
     public static void guessMin()
     {
-        //guesses = new int[guesses.length];
         int sortMinNum = guesses[0];
         for (int i = 1; i < guesses.length ; i++)
         {
             if (guesses[i] < sortMinNum)
             {
-                //sortMinNum = guesses.length;
                 sortMinNum = guesses[i];
             }
         }
         System.out.print("Min = " + sortMinNum);
         System.out.println();
+        // for valid array, using new array again in method ;prevent array out of bound using the same array
         questionEndGame();
     }
 
-    // initialize sortMaxNum start using index 0 and looping +1 ++
+    // initialize sortMaxNum start using index[0](first num) sorting the max num and looping 1++
     public static void guessesMax()
         {
-            //guesses = new int[guesses.length];
-            //try {
             int sortMaxNum = guesses[0];
+            //} catch (ArrayIndexOutOfBoundsException ignored) {
             for (int j = 1; j < guesses.length; j++)
             {
                 if (guesses[j] > sortMaxNum)
@@ -154,8 +159,8 @@ public class GuessNumberGameV5 {
             }
             System.out.print("Max = " + sortMaxNum);
             System.out.println();
+            // for valid array, using new array again in method ;prevent array out of bound using the same array
             questionEndGame();
-            //} catch (ArrayIndexOutOfBoundsException ignored) {
 
         }
 
@@ -172,6 +177,8 @@ public class GuessNumberGameV5 {
 
     public static void showSpecific()
     {
+        // saveSpecificNum which is constraint that keep condition "number which user input in array would not out of array",
+        // but if out of array then loop this method asking user again.
         int saveSpecificNum = 0;
         for (numGuesses = 0; numGuesses < inputNumArray; numGuesses++)
         while (true)
@@ -191,6 +198,8 @@ public class GuessNumberGameV5 {
 
     public static boolean configGame()
     {
+        // boolean that always return true; which use to while loop the method and returning the new constant of variable that user input.
+        // declare variable first, second, try; all var used to comparable two numbers that user inputRange(program sorting the higher number as maxNum, and lower as minNum)
         System.out.print("Enter the min and the max value:");
         Scanner inputRangeNumber = new Scanner(System.in);
 
@@ -221,7 +230,7 @@ public class GuessNumberGameV5 {
 
     public static void genAnswer ()
     {
-
+        // random the right guess answer method
         correctNum = minNum + (int) (Math.random() * ((maxNum - minNum) + 1));
     }
 
@@ -232,6 +241,8 @@ public class GuessNumberGameV5 {
 
     public static void playGame ()
     {
+        // declare array above as static int guesses[] so what we need now is to initialize the array
+        // size of guesses array is "counterTryLoop" which received the number of all the guesses that user try
         int remainCounter = 1;
         newRemainTry = remainCounter;
 
@@ -244,7 +255,7 @@ public class GuessNumberGameV5 {
             String welcomeGuessText = "Please enter a guess ("+minNum+"-"+maxNum+"):";
             System.out.print(welcomeGuessText);
             inputNumGuessing = inputNum.nextInt();
-            //
+
             inputNum.hasNextLine();
 
             if ( (inputNumGuessing > maxNum) || (inputNumGuessing < minNum) )
