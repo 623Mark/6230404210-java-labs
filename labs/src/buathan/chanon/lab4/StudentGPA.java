@@ -23,14 +23,15 @@ public class StudentGPA {
 
     static Scanner inputInfo = new Scanner(System.in);
 
+    // tl;dr program which using array iterate ; java iterate multiple type
     public static void main(String[] args) {
         //questionUserToDo();
-        first();
+        validInfoQuestion();
         inputGrades();
         showGPA();
     }
 
-    public static void first() {
+    public static void validInfoQuestion() {
         System.out.println("Enter grades of student (year term name_course credit grade).");
         System.out.println("Finish when enter year with 0");
         return;
@@ -61,24 +62,24 @@ public class StudentGPA {
 
             } else {
 
-
-                //termInfo = new int[MAX_NUMBER_OF_COURSE];
                 for (numberOfCourse = 0; numberOfCourse < MAX_NUMBER_OF_COURSE; numberOfCourse++) {
-
                     //inputGrades.yearInfo[numberOfCourse] = inputInfo.nextInt();
                     term[numberOfCourse] = inputInfo.nextInt();
                     courseName[numberOfCourse] = inputInfo.next();
                     courseCredit[numberOfCourse] = inputInfo.nextInt();
                     grades[numberOfCourse] = inputInfo.next();
 
-                            /*
-                    System.out.println(year[numberOfCourse] + " ");
-                    System.out.println(term[numberOfCourse] + " ");
-                    System.out.println(courseName[numberOfCourse] + " ");
-                    System.out.println(courseCredit[numberOfCourse] + " ");
-                    System.out.println(grades[numberOfCourse] + " ");
-                    */
+                    while (true) {
+                        for (numberOfCourse = 0; numberOfCourse < MAX_NUMBER_OF_COURSE; numberOfCourse--) {
+                            System.out.println(year[numberOfCourse] + " ");
+                            System.out.println(term[numberOfCourse] + " ");
+                            System.out.println(courseName[numberOfCourse] + " ");
+                            System.out.println(courseCredit[numberOfCourse] + " ");
+                            System.out.println(grades[numberOfCourse] + " ");
+                        }
+                    }
                 }
+
             }
         }
     }
@@ -89,7 +90,7 @@ public class StudentGPA {
 
 
         public static void showGPA() {
-            System.out.println("Accumulated GPA is " + "3.0");
+            System.out.println("Accumulated GPA is ");
         }
     }
 
