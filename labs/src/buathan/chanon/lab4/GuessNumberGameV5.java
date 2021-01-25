@@ -87,14 +87,17 @@ public class GuessNumberGameV5 {
             } else if (userInput.equals("v"))
             {
                 guessAverage();
+                return true;
 
             } else if (userInput.equals("m"))
             {
                 guessMin();
+                return true;
 
             } else if (userInput.equals("x"))
             {
                 guessesMax();
+                return true;
 
             } else {
                 questionEndGame();
@@ -111,17 +114,11 @@ public class GuessNumberGameV5 {
     for (int k = 1; k < guesses.length; k++)
         {
         averageGuess +=  guesses[k];
-        /*
-        for (int m = 1; m <= guesses.length - 1; m++)
-            {
-                averageGuess = averageGuess / useToDivide;
-            }
-        }
-        */
         }
         averageGuess = averageGuess / useToDivide;
         System.out.println(" Average = " + averageGuess);
         System.out.println();
+        questionEndGame();
     }
 
     // initialize sortMinNum start using index 0 that < minNum and looping +1 ++
@@ -139,6 +136,7 @@ public class GuessNumberGameV5 {
         }
         System.out.print("Min = " + sortMinNum);
         System.out.println();
+        questionEndGame();
     }
 
     // initialize sortMaxNum start using index 0 and looping +1 ++
@@ -156,6 +154,7 @@ public class GuessNumberGameV5 {
             }
             System.out.print("Max = " + sortMaxNum);
             System.out.println();
+            questionEndGame();
             //} catch (ArrayIndexOutOfBoundsException ignored) {
 
         }
