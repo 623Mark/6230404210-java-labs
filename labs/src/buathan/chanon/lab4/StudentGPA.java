@@ -50,9 +50,11 @@ public class StudentGPA {
             String inputCommand = inputInfo.next();
 
             if (inputCommand.equals("o")) {
+                //
                 inputGrades();
 
             } else if (inputCommand.equals("a")) {
+                //
                 inputGrades();
 
             } else if (inputCommand.equals("t")) {
@@ -84,11 +86,6 @@ public class StudentGPA {
             }
         }
     }
-
-        public static void loopArray() {
-
-        }
-
 
         public static void showGPA() {
             System.out.println("Accumulated GPA is ");
