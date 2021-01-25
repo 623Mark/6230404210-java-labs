@@ -50,11 +50,9 @@ public class StudentGPA {
             String inputCommand = inputInfo.next();
 
             if (inputCommand.equals("o")) {
-                //
                 inputGrades();
 
             } else if (inputCommand.equals("a")) {
-                //
                 inputGrades();
 
             } else if (inputCommand.equals("t")) {
