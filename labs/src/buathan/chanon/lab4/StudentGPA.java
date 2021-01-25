@@ -24,6 +24,7 @@ public class StudentGPA {
     static Scanner inputInfo = new Scanner(System.in);
 
     // tl;dr program which using array iterate ; java iterate multiple type
+    // multiple string, arrayfor loop?
     public static void main(String[] args) {
         //questionUserToDo();
         validInfoQuestion();
