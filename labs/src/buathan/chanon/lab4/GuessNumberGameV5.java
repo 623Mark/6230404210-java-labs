@@ -1,3 +1,11 @@
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: January 24, 2020
+ */
+
 package buathan.chanon.lab4;
 
 import java.util.Scanner;
@@ -13,12 +21,19 @@ public class GuessNumberGameV5 {
     static int inputNumArray = 0;
     static int counterTryLoop =0;
 
+    //static int[] sortMinNum;
+    //static int[] sortMaxNum;
+    static double averageGuess = 0;
+    static int useToDivide;
 
     static Scanner userScanner = new Scanner(System.in);
     static Scanner inputTryNumber = new Scanner(System.in);
     static Scanner inputNum = new Scanner(System.in);
     static int inputNumGuessing;
     static Scanner inputSpecificGuess = new Scanner(System.in);
+    //static Scanner inputMinArray = new Scanner(System.in);
+    //static Scanner inputMaxArray = new Scanner(System.in);
+
 
     public static void main(String[] args) {
 
@@ -68,12 +83,82 @@ public class GuessNumberGameV5 {
             {
                 showSpecific();
                 return true;
+
+            } else if (userInput.equals("v"))
+            {
+                guessAverage();
+
+            } else if (userInput.equals("m"))
+            {
+                guessMin();
+
+            } else if (userInput.equals("x"))
+            {
+                guessesMax();
+
             } else {
                 questionEndGame();
             }
             return true;
+
         }
     }
+
+
+    public static void guessAverage()
+    {
+    //guesses = new int[guesses.length];
+    for (int k = 1; k < guesses.length; k++)
+        {
+        averageGuess +=  guesses[k];
+        /*
+        for (int m = 1; m <= guesses.length - 1; m++)
+            {
+                averageGuess = averageGuess / useToDivide;
+            }
+        }
+        */
+        }
+        averageGuess = averageGuess / useToDivide;
+        System.out.println(" Average = " + averageGuess);
+        System.out.println();
+    }
+
+    // initialize sortMinNum start using index 0 that < minNum and looping +1 ++
+    public static void guessMin()
+    {
+        //guesses = new int[guesses.length];
+        int sortMinNum = guesses[0];
+        for (int i = 1; i < guesses.length ; i++)
+        {
+            if (guesses[i] < sortMinNum)
+            {
+                //sortMinNum = guesses.length;
+                sortMinNum = guesses[i];
+            }
+        }
+        System.out.print("Min = " + sortMinNum);
+        System.out.println();
+    }
+
+    // initialize sortMaxNum start using index 0 and looping +1 ++
+    public static void guessesMax()
+        {
+            //guesses = new int[guesses.length];
+            //try {
+            int sortMaxNum = guesses[0];
+            for (int j = 1; j < guesses.length; j++)
+            {
+                if (guesses[j] > sortMaxNum)
+                {
+                    sortMaxNum = guesses[j];
+                }
+            }
+            System.out.print("Max = " + sortMaxNum);
+            System.out.println();
+            //} catch (ArrayIndexOutOfBoundsException ignored) {
+
+        }
 
     public static void showGuesses()
     {
@@ -117,6 +202,7 @@ public class GuessNumberGameV5 {
         System.out.print("Enter the number of tries:");
         tryConfigNum = inputTryNumber.nextInt();
         counterTryLoop = tryConfigNum;
+        useToDivide = tryConfigNum;
 
         if (firstConfigNum > secondConfigNum)
         {
@@ -149,7 +235,10 @@ public class GuessNumberGameV5 {
     {
         int remainCounter = 1;
         newRemainTry = remainCounter;
+
         guesses = new int[counterTryLoop];
+        //guesses = new int[guesses.length];
+        //guesses = new int[useToDivide];
         while (counterTryLoop != 0)
         {
 
