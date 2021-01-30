@@ -285,7 +285,8 @@ public class GuessNumberGameV5 {
             {
                 guesses[inputNumArray] = inputNumGuessing;
                 inputNumArray++;
-                System.out.print("Please type a higher number! Number of remaining tries:" + counterTryLoop);
+                System.out.print("Please type a higher number! Number8" +
+                        " of remaining tries:" + counterTryLoop);
                 System.out.println("");
                 continue;
 
