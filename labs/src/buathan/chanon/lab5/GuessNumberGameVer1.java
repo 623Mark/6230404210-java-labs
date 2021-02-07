@@ -73,11 +73,12 @@ public class GuessNumberGameVer1 {
 
     public void playGame()
     {
-        System.out.println("GuessNumberGame with min number as 1, max number as 10, max number of tries as 3");
-        System.out.print("Please enter a guess (1-10):");
+        //System.out.println("GuessNumberGame with min number as 1, max number as 10, max number of tries as 3");
+
 
         for (int i = 0; i < maxTries; i++)
         {
+            System.out.print("Please enter a guess (1-10):");
             Scanner inputNum = new Scanner(System.in);
             int inputNumGuessing = inputNum.nextInt();
             if ( inputNumGuessing == this.correctNum)
@@ -88,13 +89,13 @@ public class GuessNumberGameVer1 {
             {
                 //--numOfGames;
                 System.out.println("Please type a higher number! Number of remaining tries: " + numOfGames--);
-                System.out.print("Please enter a guess (1-10):");
+                //System.out.print("Please enter a guess (1-10):");
                 //continue;
             } else if (inputNumGuessing > this.correctNum && numOfGames > 0)
             {
                 //numOfGames--;
                 System.out.println("Please type a lower number! Number of remaining tries: " + numOfGames--);
-                System.out.print("Please enter a guess (1-10):");
+                //System.out.print("Please enter a guess (1-10):");
                 //continue;
             } else if (numOfGames < 0)
             {
@@ -107,7 +108,7 @@ public class GuessNumberGameVer1 {
     @Override
     public String toString()
     {
-        return  String.format("Guess number with min as %s max number as %s max number of tries as &s ", this.minNum, this.maxNum, this.maxTries);
+        return  String.format("Guess number with min as %s max number as %s max number of tries as " + this.maxTries, this.minNum, this.maxNum);
     }
 
     public static int getNumOfGames()
