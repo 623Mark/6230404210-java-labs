@@ -1,3 +1,18 @@
+/**
+ * TestGuessNumberGame, the program using OOP --- getter setter
+ * The program input integers which using in class called GuessNumberGameVer1
+ * The program "TestGuessNumberGame" used to run as main program which value kept in this program itself and inherit/encapsulation class from GuessNumberGameVer1
+ * Also it have 2 class as following : (1) testSetterGetterMethod and (2) testConstructors
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: February 2, 2020
+ */
+
+
 package buathan.chanon.lab5;
 
 public class TestGuessNumberGame
@@ -9,6 +24,8 @@ public class TestGuessNumberGame
             testSetterGetterMethods();
         }
     //}
+
+    // class testSetterGetter which start at initialize object and use fixed value to input via parameter.
     public static void testSetterGetterMethods()
     {
         GuessNumberGameVer1 gng = new GuessNumberGameVer1();
@@ -30,6 +47,7 @@ public class TestGuessNumberGame
         + ", and max tries is " + gng.getMaxTries());
     }
 
+    // class TestCon which keep constructor methods using in "public class GuessNumberGameVer1()"
     public static void testConstructors()
     {
 

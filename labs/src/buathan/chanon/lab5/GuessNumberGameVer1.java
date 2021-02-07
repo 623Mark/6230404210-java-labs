@@ -1,3 +1,18 @@
+/**
+ * GuessNumberGame version 1, the program using OOP --- getter setter
+ * The program received input from class called TestGuessNumberGame
+ * The program random number which is correctNum initialized it and let's user guess the number besides,
+ * the program having maxTries, minNum, maxNum include in guessing.
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: February 2, 2020
+ */
+
+
 package buathan.chanon.lab5;
 
 import java.util.Scanner;
@@ -9,6 +24,7 @@ public class GuessNumberGameVer1 {
     protected int maxTries;
     protected static int numOfGames = 0;
 
+    // Initialize minNum, maxNum, maxTries, correctNum and increment numOfGame if not give any parameter.
     public GuessNumberGameVer1()
     {
         this.minNum = 1;
@@ -18,6 +34,7 @@ public class GuessNumberGameVer1 {
         numOfGames++;
     }
 
+    // Initialize minNum, maxNum, maxTries, correctNum and increment numOfGame if give value in parameter as ; minNum, maxNum.
     public GuessNumberGameVer1(int minNum, int maxNum)
     {
         this.minNum = minNum;
@@ -27,6 +44,7 @@ public class GuessNumberGameVer1 {
         numOfGames++;
     }
 
+    // Initialize minNum, maxNum, maxTries, correctNum and increment numOfGame if give value in parameter as ; minNum, maxNum, maxTries.
     public GuessNumberGameVer1(int minNum, int maxNum, int maxTries)
     {
         this.minNum = minNum;
@@ -36,7 +54,7 @@ public class GuessNumberGameVer1 {
         numOfGames++;
     }
 
-    // set
+    // Setter
     public void setMinNum(int minNum)
     {
         this.minNum = minNum;
@@ -55,7 +73,7 @@ public class GuessNumberGameVer1 {
         return;
     }
 
-    // get
+    // Getter
     public int getMinNum()
     {
         return minNum;
@@ -71,9 +89,10 @@ public class GuessNumberGameVer1 {
         return maxTries;
     }
 
+    // Method calculate condition which user guess in game.
     public void playGame()
     {
-        //System.out.println("GuessNumberGame with min number as 1, max number as 10, max number of tries as 3");
+
         for (int i = 0; i < maxTries; i++)
         {
             System.out.print("Please enter a guess (1-10):");
@@ -85,16 +104,12 @@ public class GuessNumberGameVer1 {
                 System.exit(0);
             } else if (inputNumGuessing < this.correctNum && numOfGames > 0)
             {
-                //--numOfGames;
                 System.out.println("Please type a higher number! Number of remaining tries: " + numOfGames--);
-                //System.out.print("Please enter a guess (1-10):");
-                //continue;
+
             } else if (inputNumGuessing > this.correctNum && numOfGames > 0)
             {
-                //numOfGames--;
                 System.out.println("Please type a lower number! Number of remaining tries: " + numOfGames--);
-                //System.out.print("Please enter a guess (1-10):");
-                //continue;
+
             } else if (numOfGames < 0)
             {
                 return;
@@ -103,6 +118,7 @@ public class GuessNumberGameVer1 {
 
     }
 
+    // Convert Object to String, also I did used format string.
     @Override
     public String toString()
     {
