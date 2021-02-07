@@ -6,6 +6,7 @@ public class TestGuessNumberGame
     //static class TestGuessNumberGenerator {
         public static void main(String[] args) {
             testConstructors();
+            testSetterGetterMethods();
         }
     //}
     public static void testSetterGetterMethods()
@@ -13,9 +14,20 @@ public class TestGuessNumberGame
         GuessNumberGameVer1 gng = new GuessNumberGameVer1();
         System.out.println("The first number game is");
         System.out.println(gng);
-        // ชื่อตัวแปรของอาจารย์ ยังไม่มี ver1 รึถ้าเราใช้ common sense ก็น่าจะให้ตัวรับ parameter  (int, int) เป็น อ๊ะเปล่า
-        //System.out.println("Now, the number of games is " + GuessNumberGameVer1.getNumOfGames() );
+        System.out.println( "Now, the number of games is " + GuessNumberGameVer1.getNumOfGames() );
 
+        GuessNumberGameVer1 gng2 = new GuessNumberGameVer1(5, 20);
+        System.out.println("Creating another guess number game");
+        System.out.println( "Now, the number of games is " + GuessNumberGameVer1.getNumOfGames() );
+
+        gng.setMinNum(2);
+        gng.setMaxNum(5);
+        gng.setMaxTries(2);
+        System.out.println("GuessNumberGame with new setting");
+        System.out.println(gng);
+        System.out.println("GuessNumberGame with getting methods");
+        System.out.println("Min num is " + gng.getMinNum() + ", max num is " + gng.getMaxNum()
+        + ", and max tries is " + gng.getMaxTries());
     }
 
     public static void testConstructors()

@@ -37,13 +37,13 @@ public class GuessNumberGameVer1 {
     }
 
     // set
-    public void setMinNum()
+    public void setMinNum(int minNum)
     {
         this.minNum = minNum;
         return;
     }
 
-    public void setMaxNum()
+    public void setMaxNum(int maxNum)
     {
         this.maxNum = maxNum;
         return;
@@ -111,7 +111,6 @@ public class GuessNumberGameVer1 {
 
     public static int getNumOfGames()
     {
-        int numOfGames = 0;
         return numOfGames;
     }
 }
