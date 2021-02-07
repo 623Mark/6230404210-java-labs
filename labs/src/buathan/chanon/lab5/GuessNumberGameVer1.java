@@ -74,8 +74,6 @@ public class GuessNumberGameVer1 {
     public void playGame()
     {
         //System.out.println("GuessNumberGame with min number as 1, max number as 10, max number of tries as 3");
-
-
         for (int i = 0; i < maxTries; i++)
         {
             System.out.print("Please enter a guess (1-10):");
