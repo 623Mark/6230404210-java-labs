@@ -92,30 +92,30 @@ public class GuessNumberGameVer1 {
     // Method calculate condition which user guess in game.
     public void playGame()
     {
-
-        for (int i = 0; i < maxTries; i++)
+        //System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
+        for (int i = maxTries - 1; i + 1 > 0 ; i--)
         {
-            System.out.print("Please enter a guess (1-10):");
+            System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
             Scanner inputNum = new Scanner(System.in);
             int inputNumGuessing = inputNum.nextInt();
             if ( inputNumGuessing == this.correctNum)
             {
                 System.out.println("Congratulations! That's correct");
-                System.exit(0);
+                //System.exit(0);
+                break;
             } else if (inputNumGuessing < this.correctNum && numOfGames > 0)
             {
-                System.out.println("Please type a higher number! Number of remaining tries: " + numOfGames--);
+                System.out.println("Please type a higher number! Number of remaining tries: " + i);
 
             } else if (inputNumGuessing > this.correctNum && numOfGames > 0)
             {
-                System.out.println("Please type a lower number! Number of remaining tries: " + numOfGames--);
+                System.out.println("Please type a lower number! Number of remaining tries: " + i);
 
             } else if (numOfGames < 0)
             {
                 return;
             }
         }
-
     }
 
     // Convert Object to String, also I did used format string.
