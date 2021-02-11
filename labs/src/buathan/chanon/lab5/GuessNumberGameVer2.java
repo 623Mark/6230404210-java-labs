@@ -33,8 +33,9 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
 
     @Override
     public void playGame() {
-        int numGuesses = 0;
-        int MAX_GUESSES = 0;
+        numGuess = 0;
+        MAX_GUESSES =0;
+        inputNumArray = 0;
 
         //System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
         for (int i = maxTries - 1; i + 1 > 0; i--) {
@@ -45,17 +46,20 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
                 System.out.println("Congratulations! That's correct");
                 guesses[inputNumArray] = inputNumGuessing;
                 inputNumArray++;
+                numGuess++;
                 //System.exit(0);
                 //break;
                 break;
             } else if (inputNumGuessing < this.correctNum && numOfGames > 0) {
                 guesses[inputNumArray] = inputNumGuessing;
                 inputNumArray++;
+                numGuess++;
                 System.out.println("Please type a higher number! Number of remaining tries: " + i);
 
             } else if (inputNumGuessing > this.correctNum && numOfGames > 0) {
                 guesses[inputNumArray] = inputNumGuessing;
                 inputNumArray++;
+                numGuess++;
                 System.out.println("Please type a lower number! Number of remaining tries: " + i);
 
             } else if (numOfGames < 0) {
@@ -67,52 +71,15 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
 
     public void showSpecific()
     {
-        System.out.println("Enter which guess in the range (1-" + guesses.length +")" );
+        System.out.println("Enter which guess in the range (1-" + numGuess +")" );
         int scannerSpecific = inputSpecific.nextInt();
         int saveArraySpecificNum = guesses[scannerSpecific - 1];
         System.out.println("Guess number " + scannerSpecific + " is " + saveArraySpecificNum);
         playGames();
-        /*
-        for (int i = 0; i < guesses.length; i++ )
-        {
-            System.out.print(guesses[i] + " ");
-        }
-        System.out.println();
-
-         */
-        /*
-                    if ( saveSpecificNum < 1 || saveSpecificNum > inputNumArray)
-            {
-                showSpecific();
-
-            } else {
-                System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum - 1]);
-                questionEndGame();
-            }
-
-        /*
-        int saveSpecificNumber;
-        for (numGuess = 0; numGuess < inputNumArray; numGuess++)
-            while (true)
-            {
-                System.out.println("Enter which guess in the range ("+ minNum + "-" + maxNum + ")");
-                saveSpecificNumber = inputSpecific.nextInt();
-                if ( saveSpecificNumber < 1 || saveSpecificNumber > inputNumArray)
-                {
-                    showSpecific();
-
-                } else {
-                    System.out.println("Guess number " + saveSpecificNumber + " is " + guesses[saveSpecificNumber - 1]);
-                    playGames();
-                }
-            }
-
-         */
     }
 
     public void showGuesses()
     {
-        //int saveSpecific = 0;
         for (int i = 0; i < inputNumArray; i++ )
         {
             System.out.print(guesses[i] + " ");
@@ -121,41 +88,29 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
         playGames();
     }
 
-    public void playGames()
-    {
+    public void playGames() {
         playGame();
-        Scanner commandInput = new Scanner(System.in);
-        System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
-                +"\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
-        String saveInput = commandInput.nextLine();
+        do {
+            Scanner commandInput = new Scanner(System.in);
+            System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
+                    + "\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
+            String saveInput = commandInput.nextLine();
 
-        if ( saveInput.equals("q") || saveInput.equals("Q"))
-        {
-            System.exit(1);
-        } else {
-            do {
-                if (saveInput.equals("y"))
-                {
-                    playGames();
-                }
-                else if (saveInput.equals("g"))
-                {
-                    showSpecific();
-                    break;
-                }
-                else if (saveInput.equals("a"))
-                    showGuesses();
+            if (saveInput.equals("q") || saveInput.equals("Q")) {
+                System.exit(1);
+            } else {
+                do {
+                    if (saveInput.equals("y")) {
+                        playGames();
+                    } else if (saveInput.equals("g")) {
+                        showSpecific();
+                        break;
+                    } else if (saveInput.equals("a"))
+                        showGuesses();
                     break;
                 } while (!(saveInput.equals("q")));
             }
-        }
+        } while (true);
+    }
 
-        /*
-        public void questionEndGame()
-        {
-            System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
-                    +"\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
-        }
-
-         */
 }
