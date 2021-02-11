@@ -33,6 +33,9 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
 
     @Override
     public void playGame() {
+        int numGuesses = 0;
+        int MAX_GUESSES = 0;
+
         //System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
         for (int i = maxTries - 1; i + 1 > 0; i--) {
             System.out.print("Please enter a guess (" + minNum + "-" + maxNum + "):");
@@ -64,14 +67,19 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
 
     public void showSpecific()
     {
+        System.out.println("Enter which guess in the range (1-" + guesses.length +")" );
+        int scannerSpecific = inputSpecific.nextInt();
+        int saveArraySpecificNum = guesses[scannerSpecific - 1];
+        System.out.println("Guess number " + scannerSpecific + " is " + saveArraySpecificNum);
+        playGames();
         /*
-        System.out.println("Enter which guess in the range ("+ this.minNum +"-" + this.maxNum +")" );
-        int saveSpecific = specificInput.nextInt();
         for (int i = 0; i < guesses.length; i++ )
         {
             System.out.print(guesses[i] + " ");
         }
         System.out.println();
+
+         */
         /*
                     if ( saveSpecificNum < 1 || saveSpecificNum > inputNumArray)
             {
@@ -81,7 +89,8 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
                 System.out.println("Guess number " + saveSpecificNum + " is " + guesses[saveSpecificNum - 1]);
                 questionEndGame();
             }
-         */
+
+        /*
         int saveSpecificNumber;
         for (numGuess = 0; numGuess < inputNumArray; numGuess++)
             while (true)
@@ -97,11 +106,13 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
                     playGames();
                 }
             }
+
+         */
     }
 
     public void showGuesses()
     {
-        int saveSpecific = 0;
+        //int saveSpecific = 0;
         for (int i = 0; i < inputNumArray; i++ )
         {
             System.out.print(guesses[i] + " ");
@@ -139,4 +150,12 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1
             }
         }
 
+        /*
+        public void questionEndGame()
+        {
+            System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
+                    +"\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
+        }
+
+         */
 }

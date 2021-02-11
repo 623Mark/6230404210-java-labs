@@ -20,10 +20,17 @@ public class TestGuessNumberGame
 
     //static class TestGuessNumberGenerator {
         public static void main(String[] args) {
-            testConstructors();
-            testSetterGetterMethods();
+            //testConstructors();
+            //testSetterGetterMethods();
+            testPlayGame();
         }
     //}
+
+    public static void testPlayGame()
+    {
+            GuessNumberGameVer2 gng = new GuessNumberGameVer2(5, 10, 4);
+            gng.playGames();
+    }
 
     // class testSetterGetter which start at initialize object and use fixed value to input via parameter.
     public static void testSetterGetterMethods()
