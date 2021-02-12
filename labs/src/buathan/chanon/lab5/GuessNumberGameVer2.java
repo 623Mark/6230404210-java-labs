@@ -47,6 +47,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         numGuess = 0;
         MAX_GUESSES = 0;
         inputNumArray = 0;
+        correctNum = minNum + (int) ( Math.random() * ((maxNum - minNum) + 1 ) );
 
         for (int i = maxTries - 1; i + 1 > 0; i--) {
             System.out.print("Please enter a guess (" + minNum + "-" + maxNum + "):");

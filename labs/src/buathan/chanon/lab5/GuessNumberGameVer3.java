@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class GuessNumberGameVer3 extends GuessNumberGameVer2
 {
-    static double averageGuess = 0;
+    //static double averageGuess = 0;
 
     public GuessNumberGameVer3(int minNum, int maxNum, int maxTries)
     {
@@ -34,6 +34,8 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
         //averageGuess = 0;
         numGuess = 0;
         MAX_GUESSES = 0;
+        correctNum = minNum + (int) ( Math.random() * ((maxNum - minNum) + 1 ) );
+
         playGame();
         // Looping question, if the user type other than we mentioned; the program will ask again.
         do {
@@ -74,6 +76,7 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
     // guessAverage, calculate average number which received from user guesses divide by tries.
     public void guessAverage()
     {
+        int averageGuess = 0;
         for (int i = 0; i < numGuess; i++)
         {
             averageGuess += guesses[i];
