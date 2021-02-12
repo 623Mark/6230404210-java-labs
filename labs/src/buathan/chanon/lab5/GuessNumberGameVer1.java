@@ -92,7 +92,6 @@ public class GuessNumberGameVer1 {
     // Method calculate condition which user guess in game.
     public void playGame()
     {
-        //System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
         for (int i = maxTries - 1; i + 1 > 0 ; i--)
         {
             System.out.print("Please enter a guess ("+ minNum + "-" + maxNum +"):");
@@ -101,8 +100,8 @@ public class GuessNumberGameVer1 {
             if ( inputNumGuessing == this.correctNum)
             {
                 System.out.println("Congratulations! That's correct");
-                //System.exit(0);
                 break;
+
             } else if (inputNumGuessing < this.correctNum && numOfGames > 0)
             {
                 System.out.println("Please type a higher number! Number of remaining tries: " + i);
