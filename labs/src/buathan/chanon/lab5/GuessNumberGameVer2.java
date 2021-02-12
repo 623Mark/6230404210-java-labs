@@ -1,8 +1,8 @@
 /**
  * GuessNumberGame version 2,
  * The program add 2 new method -- showGuesses, showSpecific
- * The program having "showGuesses" as display the number which user guesses.
- * "showSpecific" as reflect what number tries which user guesses.
+ * The program having "showGuesses" as display the number which user guesses. ;by user type "g"
+ * "showSpecific" as reflect what number tries which user guesses. ;by user type "a"
  */
 
 /*
