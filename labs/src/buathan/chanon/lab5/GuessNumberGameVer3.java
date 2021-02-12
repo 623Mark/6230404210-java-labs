@@ -19,7 +19,6 @@ import java.util.Arrays;
 
 public class GuessNumberGameVer3 extends GuessNumberGameVer2
 {
-
     static double averageGuess = 0;
 
     public GuessNumberGameVer3(int minNum, int maxNum, int maxTries)
@@ -32,11 +31,9 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
     @Override
     public void playGames()
     {
+        //averageGuess = 0;
         numGuess = 0;
-        //MAX_GUESSES = 0;
-        //int i = 0;
-        //guesses[i] = 0 ;
-
+        MAX_GUESSES = 0;
         playGame();
         // Looping question, if the user type other than we mentioned; the program will ask again.
         do {
@@ -47,7 +44,8 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
             String saveInput = commandInput.nextLine();
 
 
-            if (saveInput.equals("q") || saveInput.equals("Q")) {
+            if (saveInput.equals("q") || saveInput.equals("Q"))
+            {
                 System.exit(1);
 
             }   else if (saveInput.equals("y")) {
@@ -76,7 +74,6 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
     // guessAverage, calculate average number which received from user guesses divide by tries.
     public void guessAverage()
     {
-        //double averageNum;
         for (int i = 0; i < numGuess; i++)
         {
             averageGuess += guesses[i];
@@ -90,6 +87,10 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
     // guessMin, sort the minimum number from array guesses.
     public void guessMin()
     {
+        // ref: https://stackoverflow.com/questions/41078725/min-value-in-array-keeps-printing-0-java-but-no-zero-in-the-txt-file-as-a-num
+        // https://stackoverflow.com/questions/10369724/finding-min-but-zero
+
+        // By checking number if it's zero then the program will return true and looping again until it's false and received other numbers then zero.
         int minValue = Integer.MAX_VALUE;
         for (int checkUnusedZero : guesses)
         {
@@ -109,7 +110,8 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         testPlayGames();
     }
 
