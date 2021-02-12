@@ -1,18 +1,27 @@
 package buathan.chanon.lab5;
 
+import java.util.Arrays;
+
 public class GuessNumberGameVer3 extends GuessNumberGameVer2
 {
-    static double averageGuess = 0;
-    static int useToDivide;
+    protected double averageGuess = 0;
+    //protected int useToDivide;
 
+    protected double min = guesses[0];
+    //protected double max = guesses[0];
+    protected double sum = 0;
+    //protected
     public GuessNumberGameVer3(int minNum, int maxNum, int maxTries)
     {
         super(minNum, maxNum, maxTries);
     }
 
     @Override
-
     public void playGames() {
+        numGuess = 0;
+        MAX_GUESSES = 0;
+        int i = 0;
+        guesses[i] = 0 ;
         playGame();
         do {
             System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
@@ -50,24 +59,76 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
 
     public void guessAverage()
     {
-    //v
-
-        //System.out.println("Average = " );
-        for (int k = 1; k < guesses.length; k++)
+        double averageNum;
+        double averageGuess = 0;
+        for (int i = 1; i < numGuess; i++)
         {
-            averageGuess +=  guesses[k];
+            averageGuess += guesses[i];
         }
-        averageGuess = averageGuess / useToDivide;
-        System.out.println(" Average = " + averageGuess);
+        averageNum = averageGuess / numGuess ;
+        System.out.println("Average = " + averageNum);
         System.out.println();
 
+
+
+        /*
+        for (double value : guesses) {
+            //min = Math.min(value, min);
+            //sum += Double.parseDouble(String.valueOf(guesses));
+            sum += guesses[i];
+        }
+        double avg = sum / guesses.length;
+        //return new double[] {min, max, avg};
+         */
+        //System.out.println("Average = " + avg);
     }
 
+
+    /*
+    double[] values = {2,3,4,5,6,7};
+
+    double min = values[0];
+    double max = values[0];
+    double sum = 0;
+
+    for (double value : values) {
+    min = Math.min(value, min);
+    max = Math.max(value, max);
+    sum += value;
+    }
+
+    double avg = sum / values.length;
+
+    System.out.println("Min: " + min);
+    System.out.println("Max: " + max);
+    System.out.println("Avg: " + avg);
+    */
     public void guessMin()
     {
-    //m
+        Arrays.sort(guesses);
+
+        int minValue = guesses[0];
+        for(int i=1; i<guesses.length; i++){
+            if( guesses[i] < minValue ){
+                minValue = guesses[i];
+            }
+        }
+        System.out.println("Minimum = " + guesses[1]);
+        /*
+        // for-each
+        for (int value : guesses) {
+            min = Math.min(value, min);
+        }
+        System.out.println("Min = " + min);
+        System.out.println();
+
+         */
+        //return new double[] {min, max, avg};
+        //Arrays.sort(guesses);
+        //System.out.println("Minimum = " + guesses[1]);
 
         //System.out.println("Min =" );
+        /*
         int sortMinNum = guesses[0];
         for (int i = 1; i < guesses.length ; i++)
         {
@@ -77,23 +138,29 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2
             }
         }
         System.out.print("Min = " + sortMinNum);
-        System.out.println();
+
+         */
+
 
     }
 
     public void guessMax()
     {
-        //x
-        //System.out.println("Max =");
+        Arrays.sort(guesses);
+        //System.out.println("Minimum = " + guesses[0]);
+        System.out.println("Maximum = " + guesses[guesses.length - 1]);
+        /*
         int sortMaxNum = guesses[0];
-        for (int j = 1; j < guesses.length; j++)
+        for (int i = 1; i < guesses.length; i++)
         {
-            if (guesses[j] > sortMaxNum)
+            if (guesses[i] > sortMaxNum)
             {
-                sortMaxNum = guesses[j];
+                sortMaxNum = guesses[i];
             }
         }
         System.out.print("Max = " + sortMaxNum);
+
+         */
         System.out.println();
 
     }
