@@ -1,3 +1,17 @@
+/**
+ * GuessNumberGame version 2,
+ * The program add 2 new method -- showGuesses, showSpecific
+ * The program having "showGuesses" as display the number which user guesses.
+ * "showSpecific" as reflect what number tries which user guesses.
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: February 12, 2020
+ */
+
 package buathan.chanon.lab5;
 
 import java.util.Scanner;
@@ -7,13 +21,11 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
     protected int numGuess = 0;
     protected int MAX_GUESSES = 20;
 
-    //
+    // Scanner, which used to receive input from Specific and command.
     protected Scanner inputSpecific = new Scanner(System.in);
     protected Scanner commandInput = new Scanner(System.in);
     protected static int inputNumArray = 0;
-    protected static int inputNumGuessing;
 
-    //
     public GuessNumberGameVer2() {
         super();
         guesses = new int[MAX_GUESSES];
@@ -31,6 +43,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
 
     @Override
     public void playGame() {
+        // Override below values which use to set the value from the newest play every time, it has been run.
         numGuess = 0;
         MAX_GUESSES = 0;
         inputNumArray = 0;
@@ -42,6 +55,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
 
             if (inputNumGuessing == this.correctNum) {
                 System.out.println("Congratulations! That's correct");
+                // Saving Guess numbers in array member.
                 guesses[inputNumArray] = inputNumGuessing;
                 inputNumArray++;
                 numGuess++;
@@ -59,30 +73,38 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
                 numGuess++;
                 System.out.println("Please type a lower number! Number of remaining tries: " + i);
 
+                // If numOfGames have been -1 or less than 0 break the loop.
             } else if (numOfGames < 0) {
                 break;
             }
         }
     }
 
-    public void showSpecific() {
+    // showSpecific, display the single number position.
+    public void showSpecific()
+    {
         System.out.println("Enter which guess in the range (1-" + numGuess + ")");
         int scannerSpecific = inputSpecific.nextInt();
         int saveArraySpecificNum = guesses[scannerSpecific - 1];
         System.out.println("Guess number " + scannerSpecific + " is " + saveArraySpecificNum);
-        //playGames();
+
     }
 
-    public void showGuesses() {
-        for (int i = 0; i < inputNumArray; i++) {
+    // showGuesses, display the numbers which user guessed from that round.
+    public void showGuesses()
+    {
+        for (int i = 0; i < inputNumArray; i++)
+        {
             System.out.print(guesses[i] + " ");
         }
         System.out.println();
-        //playGames();
+
     }
 
-    public void playGames() {
+    public void playGames()
+    {
         playGame();
+        // do while (condition) ;as it's true which always use to looping questionEndGame below.
         do {
             System.out.println("If want to play again? type 'y' to continue or 'q' to quit:"
                     + "\nType 'a' to see all your guesses or 'g' to see a guess on a specific play.");
@@ -103,29 +125,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
 
                 }
             } while (true);
-        //} while (true);
-        //while (!(saveInput.equals("q")));
 
-        /*
-            switch (saveInput) {
-                case "q":
-                    System.exit(1);
-
-                case "y":
-                    playGame();
-                    break;
-
-                case "g":
-                    showSpecific();
-                    break;
-
-                case "a":
-                    showGuesses();
-                    break;
-            }
-        } while (true);
-
-         */
     }
 
 }
