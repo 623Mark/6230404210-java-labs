@@ -22,15 +22,17 @@ public class TestGuessNumberGame
         public static void main(String[] args) {
             //testConstructors();
             //testSetterGetterMethods();
-            testPlayGame();
+            testPlayGames();
         }
     //}
 
-    public static void testPlayGame()
+
+    public static void testPlayGames()
     {
             GuessNumberGameVer2 gng = new GuessNumberGameVer2(5, 10, 4);
             gng.playGames();
     }
+
 
     // class testSetterGetter which start at initialize object and use fixed value to input via parameter.
     public static void testSetterGetterMethods()
