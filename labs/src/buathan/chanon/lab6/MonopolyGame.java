@@ -29,21 +29,43 @@ public class MonopolyGame extends DiceGame implements UseBoard ,HasRule, UseDice
         this.gameName = "Monopoly Game";
         this.numOfPlayers = 2;
         //cash[] = 1500;
-        ArrayList<Integer> cash = new ArrayList<Integer>(1500);
+        //ArrayList<Integer> cash = new ArrayList<Integer>(1500);
         //cash.add(1500);
+        for (int i = 0; i < numOfPlayers; i++)
+        {
+            //cash.set(i, 1500);
+            cash[i] = 1500;
+        }
     }
 
     MonopolyGame(int numOfPlayer)
     {
         this.gameName = "Monopoly Game";
         this.numOfPlayers = numOfPlayer;
+        //ArrayList<Integer> cash = new ArrayList<Integer>(1500);
+        for (int i = 0; i < numOfPlayers; i++)
+        {
+            //cash.set(i, 1500);
+            cash[i] = 1500;
+        }
     }
 
-    public int[] getCash() {
-        return cash;
+    public String getCash()
+    {
+        //String cash = "";
+        String saveCash = "";
+        for (int i = 0; i < numOfPlayers;i++)
+        {
+            //String saveCash += cash[i];
+            //saveCash += " ";
+            saveCash += cash[i] + " ";
+        }
+
+        return saveCash;
     }
 
-    public void setCash(int[] cash) {
+    public void setCash(int[] cash)
+    {
         this.cash = cash;
     }
 
@@ -68,15 +90,15 @@ public class MonopolyGame extends DiceGame implements UseBoard ,HasRule, UseDice
         return diceRoll;
     }
 
-    public String gameRules() {
+    public String gameRules()
+    {
         return null;
     }
 
     @Override
-    public String toString() {
-        return "Game name : " + gameName + ", Number of players : " + numOfPlayers
-                + "\nroll dice " + diceRoll + "\nshow cash " + Arrays.toString(cash)
-                + " " + Arrays.toString(cash) + " " + Arrays.toString(cash) ;
+    public String toString()
+    {
+        return "Game name : " + gameName + ", Number of players : " + numOfPlayers;
     }
 }
 
