@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class TestGameUsingPolymorphism extends TestGames {
 
     public static void main(String[] args) {
-        //Game game;
-        // ArrayList which <relatable> => Game as abstract class and I was edited scope of it to be "public" as well.
+
+        // ArrayList which <relatable> => Game as abstract class and I was edited scope of it, to be "public" as well.
         // If it wasn't *public abstract* it's unreachable.
         ArrayList<Game> myGameList = new ArrayList<Game>(0);
         myGameList.add( new DiceGame() );
@@ -27,18 +27,15 @@ public class TestGameUsingPolymorphism extends TestGames {
         myGameList.add( new DiceGame("l") );
         myGameList.add( new GuessNumberGame(1, 6, 1));
 
-
+        // For-each objects (Game << abstract class) game << fixed variable that professor write down in the lab7.
         for (Game game : myGameList) {
             System.out.println(game);
             game.playGame();
-//            game2.playGame();
-//            game3.playGame();
 
-            //game4.playGame();
-            //game5.playGame();
         }
     }
 }
+
 //        DiceGame game1 = new DiceGame();
 //        DiceGame game2 = new DiceGame("h");
 //        GuessNumberGame game3 = new GuessNumberGame();
@@ -57,16 +54,3 @@ public class TestGameUsingPolymorphism extends TestGames {
     DiceGame game4 = new DiceGame("l");
     GuessNumberGame game5 = new GuessNumberGame(1, 6, 1);
     */
-/*        game.add();
-                game.add("h");
-                game.add();
-                game.add("l");
-                game.add(1, 6, 1);*/
-//TestGames[] game = new TestGames[4];
-/*
-game[0] = new DiceGame();
-       game[1] = new DiceGame("h");
-       game[2] = new GuessNumberGame();
-       game[3] = new GuessNumberGame(1, 6, 1);
-
- */

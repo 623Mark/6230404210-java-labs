@@ -1,3 +1,15 @@
+/**
+ *  SortByMaxTries, program that sort number to compare minNum, maxNum, maxTries from GuessNumberGameVer4, in lab7.
+ *  and the program first compare maxTries in each individual GuessNumberGameV4 results.
+ * /
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 14, 2021
+ */
+
 package buathan.chanon.lab7;
 
 import java.util.Comparator;
