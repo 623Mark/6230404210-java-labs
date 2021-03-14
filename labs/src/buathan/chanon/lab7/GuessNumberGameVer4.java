@@ -1,3 +1,10 @@
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 14, 2021
+ */
+
 package buathan.chanon.lab7;
 
 import buathan.chanon.lab5.GuessNumberGameVer3;
