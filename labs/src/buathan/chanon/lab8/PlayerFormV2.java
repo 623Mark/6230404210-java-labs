@@ -55,7 +55,8 @@ public class PlayerFormV2  extends PlayerFormV1
         //mainPanel.add(notePanel, BorderLayout.CENTER);
         //mainPanel.add(bottomPanel, BorderLayout.SOUTH);
         //setContentPane(mainPanel);
-        allPreviousPanel.add(bottomPanel, BorderLayout.SOUTH);
+        allPreviousPanel.add(bottomPanel, BorderLayout.CENTER);
+        allPreviousPanel.add(buttomPanel, BorderLayout.SOUTH);
 
     }
 

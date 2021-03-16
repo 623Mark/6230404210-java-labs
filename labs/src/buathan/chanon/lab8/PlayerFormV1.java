@@ -59,8 +59,6 @@ public class PlayerFormV1 extends MySimpleWindow
         genderPanel.add(genderLabel);
         genderPanel.add(genderRadioPanel);
 
-
-
         // Positions
         firstPanel = new JPanel(new BorderLayout());
         firstPanel.add(namePanel, BorderLayout.NORTH);
@@ -80,8 +78,10 @@ public class PlayerFormV1 extends MySimpleWindow
         allPreviousPanel = new JPanel(new BorderLayout());
         allPreviousPanel.add(firstPanel, BorderLayout.NORTH);
         allPreviousPanel.add(middlePanel, BorderLayout.CENTER);
-        allPreviousPanel.add(secondPanel, BorderLayout.SOUTH);
+        allPreviousPanel.add(secondPanel, BorderLayout.CENTER);
+        allPreviousPanel.add(buttomPanel, BorderLayout.SOUTH);
         setContentPane(allPreviousPanel);
+
     }
 
     public static void main(String[] args)

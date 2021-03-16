@@ -9,7 +9,7 @@ public class MySimpleWindow extends JFrame {
     protected static String submitButtonAsString = "Submit";
     protected static String simpleTitle;
     protected JFrame mainFrame;
-    protected JPanel mainPanel, buttompanel;
+    protected JPanel mainPanel, buttomPanel;
     protected JButton resetButton;
     protected JButton submitButton;
 
@@ -23,15 +23,15 @@ public class MySimpleWindow extends JFrame {
 
     protected void addComponents() {
         this.mainPanel = new JPanel();
-        this.buttompanel = new JPanel();
+        this.buttomPanel = new JPanel();
         add(this.mainPanel);
 
         this.resetButton = new JButton(resetButtonAsString);
         this.submitButton = new JButton(submitButtonAsString);
-        this.buttompanel.add(this.resetButton);
-        this.buttompanel.add(this.submitButton);
+        this.buttomPanel.add(this.resetButton);
+        this.buttomPanel.add(this.submitButton);
         setLayout(new BorderLayout());
-        add(buttompanel, BorderLayout.AFTER_LAST_LINE);
+        add(buttomPanel, BorderLayout.AFTER_LAST_LINE);
     }
 
     protected void setFrameFeatures() {
