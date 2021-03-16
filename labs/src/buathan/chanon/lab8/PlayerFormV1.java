@@ -3,11 +3,10 @@ package buathan.chanon.lab8;
 import javax.swing.*;
 import java.awt.*;
 
-//import java.swing.awt.*;
 public class PlayerFormV1 extends MySimpleWindow
 {
     protected JPanel namePanel, nationalityPanel, dateBirthPanel, genderPanel
-            ,genderRadioPanel , firstPanel, secondPanel, middlePanel;
+            ,genderRadioPanel , firstPanel, secondPanel, middlePanel, allPreviousPanel;
     protected JLabel nameLabel, nationalityLabel, dateBirthLabel, genderLabel;
     protected JRadioButton maleRadioButton, femaleRadioButton;
     protected JTextField nameTF, nationalityTF, dateBirthTF;
@@ -56,14 +55,10 @@ public class PlayerFormV1 extends MySimpleWindow
 
         genderRadioPanel.add(maleRadioButton);
         genderRadioPanel.add(femaleRadioButton);
-                //genderRadioPanel = new JPanel(new GridLayout(0,2));
         genderPanel = new JPanel(new GridLayout(0, 2));
-        //typePanel = new JPanel(new GridLayout(0,2));
         genderPanel.add(genderLabel);
         genderPanel.add(genderRadioPanel);
 
-
-        // Add Components
 
 
         // Positions
@@ -81,6 +76,12 @@ public class PlayerFormV1 extends MySimpleWindow
         mainPanel.add(middlePanel, BorderLayout.NORTH);
         add(mainPanel);
 
+        // All panel
+        allPreviousPanel = new JPanel(new BorderLayout());
+        allPreviousPanel.add(firstPanel, BorderLayout.NORTH);
+        allPreviousPanel.add(middlePanel, BorderLayout.CENTER);
+        allPreviousPanel.add(secondPanel, BorderLayout.SOUTH);
+        setContentPane(allPreviousPanel);
     }
 
     public static void main(String[] args)
@@ -102,21 +103,3 @@ public class PlayerFormV1 extends MySimpleWindow
     }
 
 }
-
-/*
-
-// Add component
-        namePanel.add(nameLabel);
-                namePanel.add(nameTF);
-
-                nationalityPanel.add(nationalityLabel);
-                nationalityPanel.add(nationalityTF);
-
-                dateBirthPanel.add(dateBirthLabel);
-                dateBirthPanel.add(dateBirthTF);
-
-                Group.add(maleRadioButton);
-                Group.add(femaleRadioButton);
-                genderRadioPanel.add(maleRadioButton);
-                genderRadioPanel.add(femaleRadioButton);
-*/
