@@ -7,8 +7,8 @@ public class PlayerFormV3 extends PlayerFormV2
 {
     protected String gameStr[] = {"Guess Number Game", "High-Low Game", "Monopoly Game"};
     protected JList gameList;
-    //protected JScrollPane gameScrollPane;
-    protected JPanel gamePanel, contentBottomPanel;
+    protected JScrollPane gameScrollPane;
+    protected JPanel gamePanel, gameBetweenNotePanel, savedPreviousPanel;
     protected JLabel gameLabel;
 
     public PlayerFormV3(String title)
@@ -20,17 +20,65 @@ public class PlayerFormV3 extends PlayerFormV2
     {
         super.addComponents();
         gameList = new JList(gameStr);
-        //gameScrollPane = new JScrollPane(gameList);
+        gameScrollPane = new JScrollPane(gameScrollPane);
         gameLabel = new JLabel("Games:");
         gamePanel = new JPanel();
 
-        contentBottomPanel = new JPanel();
-
+        gameBetweenNotePanel = new JPanel();
+////
         gamePanel.setLayout(new GridLayout(0,2));
         gamePanel.add(gameLabel);
-        //gamePanel.add(gameScrollPane);
+        gamePanel.add(gameScrollPane);
+//
+        //
+//        savedPreviousPanel = new JPanel();
+//        savedPreviousPanel.add(genderPanel, BorderLayout.NORTH);
+//        savedPreviousPanel.add(playerTypePanel, BorderLayout.CENTER);
 
-        contentBottomPanel.setLayout(new BorderLayout());
+
+        gameBetweenNotePanel.setLayout(new BorderLayout());
+        gameBetweenNotePanel.add(gamePanel, BorderLayout.NORTH);
+        //attachTopPanel.add(savedPreviousPanel, BorderLayout.NORTH);
+        bottomPanel.add(gamePanel, BorderLayout.SOUTH);
+
+        attachTopPanel.add(gameBetweenNotePanel, BorderLayout.SOUTH);
+
+
+        //bottomPanel.add(playerTypePanel, BorderLayout.NORTH);
+    //    bottomPanel.add( contentBottomPanel, BorderLayout.CENTER); //, BorderLayout.SOUTH);
+        //bottomPanel.add(gamePanel, BorderLayout.AFTER_LINE_ENDS);
+
+
+//จำ        bottomPanel.add(gamePanel, BorderLayout.BEFORE_LINE_BEGINS);
+ // จำ      bottomPanel.add(notePanel, BorderLayout.SOUTH);
+       // gameBetweenNotePanel.add(gamePanel, BorderLayout.NORTH);
+       // attachTopPanel.add(gameBetweenNotePanel, BorderLayout.SOUTH);
+
+       //
+       // buttonPanel.add(contentBottomPanel, BorderLayout.NORTH);
+
+       // secondPanel.add(gamePanel, BorderLayout.WEST);
+      //  contentBottomPanel.add(gamePanel, BorderLayout.NORTH);
+      //  contentBottomPanel.add(buttonPanel, BorderLayout.SOUTH);
+        //mainPanel.add(contentBottomPanel, BorderLayout.SOUTH);
+        //allPreviousPanel.add(gamePanel);///, BorderLayout.SOUTH);
+
+
+
+        ///
+ /*     firstPanel = new JPanel(new BorderLayout());
+        firstPanel.add(namePanel, BorderLayout.NORTH);
+        firstPanel.add(nationalityPanel, BorderLayout.CENTER);
+        firstPanel.add(dateBirthPanel, BorderLayout.SOUTH);
+
+        secondPanel = new JPanel(new BorderLayout());
+        secondPanel.add(genderPanel, BorderLayout.NORTH);
+
+        middlePanel = new JPanel(new BorderLayout());
+        middlePanel.add(firstPanel, BorderLayout.NORTH);
+        middlePanel.add(secondPanel, BorderLayout.SOUTH);;*/
+
+        ///
 /*
         //allPreviousPanel.add(bottomPanel, BorderLayout.NORTH);
         allPreviousPanel.add(buttomPanel, BorderLayout.NORTH);
@@ -39,8 +87,11 @@ public class PlayerFormV3 extends PlayerFormV2
 //          allPreviousPanel.add(secondPanel, BorderLayout.CENTER);
 //          allPreviousPanel.add(middlePanel, BorderLayout.CENTER);
 
-             mainPanel.add(middlePanel, BorderLayout.SOUTH);
+        //mainPanel.add(middlePanel, BorderLayout.NORTH);
+      //  mainPanel.add(gamePanel, BorderLayout.SOUTH);
 
+            //contentBottomPanel.add(gamePanel, BorderLayout.CENTER);
+            //allPreviousPanel.add(bottomPanel, BorderLayout.SOUTH);
         //contentBottomPanel.add(gamePanel, BorderLayout.NORTH);
 
     //1    contentBottomPanel.setLayout(new BorderLayout());
@@ -84,26 +135,3 @@ public class PlayerFormV3 extends PlayerFormV2
 
 }
 
-
-
-
-
-/*    public static void main(String[] args)
-    {
-        SwingUtilities.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                createAndShowGUI();
-            }
-        });
-    }
-
-    public static void createAndShowGUI()
-    {
-        PlayerFormV2 msw = new PlayerFormV2("Player Form V2");
-        msw.addComponents();
-        msw.setFrameFeatures();
-    }
-
-}*/
