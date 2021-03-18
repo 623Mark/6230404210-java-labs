@@ -1,3 +1,16 @@
+/**
+ * PlayerFormV2, the program which add "panel" of playerType, notePanel
+ * which playerType using comboBox
+ * and  notePanel using JTextArea
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 18, 2021
+ */
+
 package buathan.chanon.lab8;
 
 import javax.swing.*;
@@ -26,8 +39,6 @@ public class PlayerFormV2  extends PlayerFormV1
         playerTypeCombo.getSelectedItem();
 
         playerTypePanel = new JPanel(new GridLayout(0,2));
-/*        playerTypePanel.add(playerTypeLabel);
-        playerTypePanel.add(playerTypeCombo);*/
         noteLabel = new JLabel("Note:");
         noteTextArea = new JTextArea(3, 35);
         noteTextArea.setText("A game is structured form of play, usually undertaken for " +
@@ -50,13 +61,8 @@ public class PlayerFormV2  extends PlayerFormV1
         bottomPanel.add(playerTypePanel, BorderLayout.CENTER);
         bottomPanel.add(notePanel, BorderLayout.SOUTH);
 
-
-        //mainPanel.add(playerTypePanel, BorderLayout.NORTH);
-        //mainPanel.add(notePanel, BorderLayout.CENTER);
-        //mainPanel.add(bottomPanel, BorderLayout.SOUTH);
-        //setContentPane(mainPanel);
         allPreviousPanel.add(bottomPanel, BorderLayout.CENTER);
-        allPreviousPanel.add(buttomPanel, BorderLayout.SOUTH);
+        allPreviousPanel.add(buttonPanel, BorderLayout.SOUTH);
 
     }
 

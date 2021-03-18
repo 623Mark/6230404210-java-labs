@@ -1,10 +1,26 @@
+/**
+ * PlayerFormV4, the program which add "Menu" to the program
+ * which Menu include file, configMenu
+ * In File,  using new, open, save, exit
+ * In Config, using colorMenu, sizeMenu
+ * In colorMenu, adding submenu having red, green, blue
+ * In sizeMenu, adding size16, size20, size24
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 18, 2021
+ */
+
 package buathan.chanon.lab8;
 
 import javax.swing.*;
 
 public class PlayerFormV4 extends PlayerFormV3
 {
-    // new open save // in config v
+    // Created menu, using JMenuBar; JMenu; JMenuItem
     protected JMenuBar menuBar;
     protected  JMenu    fileMenu, configMenu,
                         colorMenu, sizeMenu; // having subMenus
@@ -30,14 +46,16 @@ public class PlayerFormV4 extends PlayerFormV3
         ImageIcon iconNew = new ImageIcon(getClass().getResource("newImage.png"));
         ImageIcon iconSave = new ImageIcon(getClass().getResource("saveImage.png"));
 
+        // Texts in icon
         menuBar = new JMenuBar();
         fileMenu = new JMenu("File");
         configMenu = new JMenu("Config");
-        newMI = new JMenuItem("New", iconOpen);
-        openMI = new JMenuItem("Open", iconNew);
+        newMI = new JMenuItem("New", iconNew);
+        openMI = new JMenuItem("Open", iconOpen);
         saveMI = new JMenuItem("Save", iconSave);
         exitMI = new JMenuItem("Exit");
 
+        // Add new, open, save to menu("File")
         fileMenu.add(newMI);
         fileMenu.add(openMI);
         fileMenu.add(saveMI);
@@ -49,14 +67,15 @@ public class PlayerFormV4 extends PlayerFormV3
         addSubMenus();
     }
 
-
     protected void addSubMenus()
     {
+        // Add color menu text, and other text of color sub menus
         colorMenu = new JMenu("Color");
         redMI = new JMenuItem("Red");
         greenMI = new JMenuItem("Green");
         blueMI = new JMenuItem("blue");
 
+        // Add size menu text, and other text of size sub menus
         sizeMenu = new JMenu("Size");
         size16MI = new JMenuItem("16");
         size20MI = new JMenuItem("20");

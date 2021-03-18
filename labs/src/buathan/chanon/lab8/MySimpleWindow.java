@@ -1,3 +1,15 @@
+/**
+ * MySimpleWindow, the program which created the simple window for adding components further future according to my GUI works.
+ * The program add 2 buttons, reset and submit
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 18, 2021
+ */
+
 package buathan.chanon.lab8;
 
 import javax.swing.*;
@@ -7,14 +19,10 @@ public class MySimpleWindow extends JFrame {
 
     protected static String resetButtonAsString = "Reset";
     protected static String submitButtonAsString = "Submit";
-    protected static String simpleTitle;
-    protected JFrame mainFrame;
-    protected JPanel mainPanel, buttomPanel;
+    protected JPanel mainPanel, buttonPanel;
     protected JButton resetButton;
     protected JButton submitButton;
 
-
-    //String simpleTitle;
     public MySimpleWindow(String simpleTitle)
     {
         super(simpleTitle);
@@ -23,22 +31,21 @@ public class MySimpleWindow extends JFrame {
 
     protected void addComponents() {
         this.mainPanel = new JPanel();
-        this.buttomPanel = new JPanel();
+        this.buttonPanel = new JPanel();
         add(this.mainPanel);
 
         this.resetButton = new JButton(resetButtonAsString);
         this.submitButton = new JButton(submitButtonAsString);
-        this.buttomPanel.add(this.resetButton);
-        this.buttomPanel.add(this.submitButton);
+        this.buttonPanel.add(this.resetButton);
+        this.buttonPanel.add(this.submitButton);
         setLayout(new BorderLayout());
-        add(buttomPanel, BorderLayout.AFTER_LAST_LINE);
+        add(buttonPanel, BorderLayout.AFTER_LAST_LINE);
     }
 
     protected void setFrameFeatures() {
-
-        pack();
-        setVisible(true);
-        setLocationRelativeTo(null);
+        pack();                                 // set the size of initial program to 0*0
+        setVisible(true);                       // set the program to be visible
+        setLocationRelativeTo(null);            // set the program single dimensionless point (the top left corner of the window), which is what it will center
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }

@@ -1,3 +1,16 @@
+/**
+ * PlayerFormV1, the program which add "panel" of name, nationality, dateBirth, gender
+ * which gender be the choice button using JRadioButton
+ */
+
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 18, 2021
+ */
+
 package buathan.chanon.lab8;
 
 import javax.swing.*;
@@ -6,7 +19,7 @@ import java.awt.*;
 public class PlayerFormV1 extends MySimpleWindow
 {
     protected JPanel namePanel, nationalityPanel, dateBirthPanel, genderPanel
-            ,genderRadioPanel , firstPanel, secondPanel, middlePanel, allPreviousPanel;
+            ,genderRadioPanel , topPanel, attachTopPanel, middlePanel, allPreviousPanel;
     protected JLabel nameLabel, nationalityLabel, dateBirthLabel, genderLabel;
     protected JRadioButton maleRadioButton, femaleRadioButton;
     protected JTextField nameTF, nationalityTF, dateBirthTF;
@@ -46,6 +59,7 @@ public class PlayerFormV1 extends MySimpleWindow
         dateBirthPanel.add(dateBirthTF);
 
         // JRadio Button
+        // Female JRadioButton set true to give program default select whenever user run
         genderLabel = new JLabel("Gender:");
         maleRadioButton = new JRadioButton("Male");
         femaleRadioButton = new JRadioButton("Female", true);
@@ -60,26 +74,26 @@ public class PlayerFormV1 extends MySimpleWindow
         genderPanel.add(genderRadioPanel);
 
         // Positions
-        firstPanel = new JPanel(new BorderLayout());
-        firstPanel.add(namePanel, BorderLayout.NORTH);
-        firstPanel.add(nationalityPanel, BorderLayout.CENTER);
-        firstPanel.add(dateBirthPanel, BorderLayout.SOUTH);
+        topPanel = new JPanel(new BorderLayout());
+        topPanel.add(namePanel, BorderLayout.NORTH);
+        topPanel.add(nationalityPanel, BorderLayout.CENTER);
+        topPanel.add(dateBirthPanel, BorderLayout.SOUTH);
 
-        secondPanel = new JPanel(new BorderLayout());
-        secondPanel.add(genderPanel, BorderLayout.NORTH);
+        attachTopPanel = new JPanel(new BorderLayout());
+        attachTopPanel.add(genderPanel, BorderLayout.NORTH);
 
         middlePanel = new JPanel(new BorderLayout());
-        middlePanel.add(firstPanel, BorderLayout.NORTH);
-        middlePanel.add(secondPanel, BorderLayout.SOUTH);;
+        middlePanel.add(topPanel, BorderLayout.NORTH);
+        middlePanel.add(attachTopPanel, BorderLayout.SOUTH);;
         mainPanel.add(middlePanel, BorderLayout.NORTH);
         add(mainPanel);
 
         // All panel
         allPreviousPanel = new JPanel(new BorderLayout());
-        allPreviousPanel.add(firstPanel, BorderLayout.NORTH);
+        allPreviousPanel.add(topPanel, BorderLayout.NORTH);
         allPreviousPanel.add(middlePanel, BorderLayout.CENTER);
-        allPreviousPanel.add(secondPanel, BorderLayout.CENTER);
-        allPreviousPanel.add(buttomPanel, BorderLayout.SOUTH);
+        allPreviousPanel.add(attachTopPanel, BorderLayout.CENTER);
+        allPreviousPanel.add(buttonPanel, BorderLayout.SOUTH);
         setContentPane(allPreviousPanel);
 
     }
