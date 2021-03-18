@@ -7,7 +7,7 @@ public class PlayerFormV3 extends PlayerFormV2
 {
     protected String gameStr[] = {"Guess Number Game", "High-Low Game", "Monopoly Game"};
     protected JList gameList;
-    protected JScrollPane gameScrollPane;
+    //protected JScrollPane gameScrollPane;
     protected JPanel gamePanel, gameBetweenNotePanel, savedPreviousPanel;
     protected JLabel gameLabel;
 
@@ -20,7 +20,8 @@ public class PlayerFormV3 extends PlayerFormV2
     {
         super.addComponents();
         gameList = new JList(gameStr);
-        gameScrollPane = new JScrollPane(gameScrollPane);
+        //gameList.setVisibleRowCount(2);
+        //gameScrollPane = new JScrollPane(gameScrollPane);
         gameLabel = new JLabel("Games:");
         gamePanel = new JPanel();
 
@@ -28,20 +29,41 @@ public class PlayerFormV3 extends PlayerFormV2
 ////
         gamePanel.setLayout(new GridLayout(0,2));
         gamePanel.add(gameLabel);
-        gamePanel.add(gameScrollPane);
+        gamePanel.add(gameList);
+        //gamePanel.add(gameScrollPane);
 //
         //
-//        savedPreviousPanel = new JPanel();
-//        savedPreviousPanel.add(genderPanel, BorderLayout.NORTH);
-//        savedPreviousPanel.add(playerTypePanel, BorderLayout.CENTER);
+        savedPreviousPanel = new JPanel();
+        savedPreviousPanel.add(genderPanel, BorderLayout.NORTH); //, BorderLayout.SOUTH);
+        savedPreviousPanel.add(playerTypePanel, BorderLayout.SOUTH); //, BorderLayout.SOUTH);
+        //savedPreviousPanel.add(gamePanel); //, BorderLayout.SOUTH);
 
 
-        gameBetweenNotePanel.setLayout(new BorderLayout());
+/*        gameBetweenNotePanel.setLayout(new BorderLayout());
         gameBetweenNotePanel.add(gamePanel, BorderLayout.NORTH);
         //attachTopPanel.add(savedPreviousPanel, BorderLayout.NORTH);
+        //bottomPanel.remove(playerTypePanel);
+        //bottomPanel.add(playerTypePanel, BorderLayout.NORTH);
+        bottomPanel.add(savedPreviousPanel, BorderLayout.NORTH);
         bottomPanel.add(gamePanel, BorderLayout.SOUTH);
+        bottomPanel.remove(notePanel);
+        gameBetweenNotePanel.add(notePanel);*/
 
-        attachTopPanel.add(gameBetweenNotePanel, BorderLayout.SOUTH);
+        //bottomPanel.remove(genderPanel);
+        //bottomPanel.remove(playerTypePanel);
+        allPreviousPanel.remove(bottomPanel);
+
+        allPreviousPanel.remove(buttonPanel);
+
+        bottomPanel.add(savedPreviousPanel, BorderLayout.NORTH);
+        bottomPanel.add(gamePanel, BorderLayout.CENTER);
+        bottomPanel.add(notePanel, BorderLayout.SOUTH);
+        allPreviousPanel.add(bottomPanel);
+
+
+        //allPreviousPanel.add(playerTypePanel);
+        //savedPreviousPanel.add(notePanel, BorderLayout.SOUTH);
+       // attachTopPanel.add(gameBetweenNotePanel, BorderLayout.SOUTH);
 
 
         //bottomPanel.add(playerTypePanel, BorderLayout.NORTH);
