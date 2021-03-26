@@ -1,3 +1,14 @@
+/**
+* DiceImageCanvas, the program which roll the dice and results as the images (1-6).
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 26, 2021
+ */
+
 package buathan.chanon.lab9;
 
 import javax.swing.*;
@@ -17,19 +28,16 @@ public class DiceImageCanvas extends JPanel {
     protected int startSquareX = 125;
     protected int startSquareY = 40;
     protected int margin = 10;
-    public DiceImageCanvas(int diceNumber) {
-        // set size
-        // initialize a rectangle which is a background
-        // call method createCircles to place dots on a rectangle
 
+    // Constructor
+    public DiceImageCanvas(int diceNumber) {
         setSize(canvasWidth, canvasHeight);
         square = new Rectangle2D.Double(startSquareX, startSquareY, width, height);
         createCircles();
     }
 
+    // Create circle(as dot) in each dice, using position by var.
     protected void createCircles() {
-        // fill red on all circles that will be placed on a rectangle
-        //Ellipse2D.Double g = new Ellipse2D.Double(180, 100,circleWidth, circleHeight);
         circleCenter = new Ellipse2D.Double(startSquareX + (width/2) - (circleWidth/2), startSquareY + (height/2) - (circleHeight/2), circleWidth, circleHeight);
         circleTopLeft = new Ellipse2D.Double(startSquareX + margin , startSquareY + margin, circleWidth, circleHeight);
         circleTopRight = new Ellipse2D.Double(startSquareX + width - circleWidth -  margin, startSquareY + margin, circleWidth, circleHeight);
@@ -41,20 +49,19 @@ public class DiceImageCanvas extends JPanel {
         circleRightCenter = new Ellipse2D.Double(startSquareX - margin + width - circleWidth, startSquareY +height/2 - margin, circleWidth, circleHeight);
     }
 
+    // Draw the circle in any case of dice roll(1-6), set the color to 'red'.
     protected void drawDiceNumber() {
-        // depending on a dice number, place red dots properly on a rectangle
         g2d.setColor(Color.RED);
         diceNumber = (int)(Math.random() * 6) + 1;
         switch (diceNumber) {
-            //if (diceNumber == 1)
+
             case 1:
-                //g.fillOval(circleCenter);
+
                 g2d.fill(circleCenter);
                 break;
             case 2:
                 g2d.fill(circleTopRight);
                 g2d.fill(circleBottomLeft);
-                //circleCenter.fill(180, 100,circleWidth, circleHeight);
                 break;
             case 3:
                 g2d.fill(circleTopRight);
@@ -97,20 +104,6 @@ public class DiceImageCanvas extends JPanel {
         g2d = (Graphics2D)g;
         g2d.setColor(Color.WHITE);
         g2d.fill(square);
-
-     //   g2d.setColor(Color.RED);
-        //g.fillOval();
-        //g.fillOval(startSquareX + (width/2) - (circleWidth/2), startSquareY + (height/2) - (circleHeight/2), circleWidth, circleHeight);
-     //   g2d.fill(circleCenter);
-        //g.drawOval(180, 100,circleWidth, circleHeight);
-
-        /////
-/*        protected Ellipse2D.Double circleCenter, circleTopRight, circleBottomLeft,
-                circleTopLeft, circleBottomRight, circleTopCenter, circleBottomCenter;*/
-
-        ////
         drawDiceNumber();
-        //Ellipse2D.Double circle = new Ellipse2D.Double()
     }
 }
-//}
