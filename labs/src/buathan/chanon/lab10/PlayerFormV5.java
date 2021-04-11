@@ -3,131 +3,110 @@ package buathan.chanon.lab10;
 import buathan.chanon.lab8.PlayerFormV4;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class PlayerFormV5 extends PlayerFormV4
-    implements ActionListener
-{
+public class PlayerFormV5 extends PlayerFormV4 implements ActionListener, ItemListener {
+    protected ImageIcon javaIcon;
 
-    //private static String frameTitle = "PersonFormV5";
-    public static ImageIcon javaIcon;
-
-    public PlayerFormV5(String frameTitle)
-    {
-        super(frameTitle);
+    public PlayerFormV5(String name) {
+        super(name);
     }
 
-/*    protected void createDialogFromV5() {
-        icon = new ImageIcon(getClass().getResource("javaICON.png"));
-
-        String message = "";
-
-        String name = "Name is " + this.nameTF.getText();
-
-        String nationality =  "Nationality is " + this.nationalityTF.getText();
-
-        String dob = "Date of Birth : " + this.dateBirthTF.getText();
-
-        String note = "Note : " + this.noteTextArea.getText();
-
-        message = String.join(" ", name, nationality, dob, note);
-
-        JOptionPane.showMessageDialog(this, message, "Message", JOptionPane.INFORMATION_MESSAGE, icon);*/
-
-
-    //}
-
-    protected void  handleSubmitButton() {
+    protected void handleSubmitButton() {
         String gender = "";
-        if (maleRadioButton.isSelected())
-        {
+        if (maleRadioButton.isSelected()) {
             gender += "male";
         } else if (femaleRadioButton.isSelected()) {
             gender += "female";
         }
-
         javaIcon = new ImageIcon(getClass().getResource("savedImage/javaICON.png"));
-        JOptionPane.showMessageDialog(null,
+        JOptionPane.showMessageDialog
+                        (
+                null,
                 nameTF.getText() + " has nationality as " +
-                nationalityTF.getText() + ", birthdate as " +
-                dateBirthTF.getText() + ", gender as " +
-                gender + ", player type as " +
-                playerTypeCombo.getSelectedItem().toString(), "Message", JOptionPane.INFORMATION_MESSAGE
-
-        );
+                        nationalityTF.getText() + ", birthdate as " +
+                        dateBirthTF.getText() + ", gender as " +
+                        gender + ", player type as " +
+                        playerTypeCombo.getSelectedItem().toString(), "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                        );
     }
 
-/*    protected void setValues() {
-        nameTF.setText("Manee");
-        nationalityTF.setText("Thai");
-        dateBirthTF.setText("31-01-2000");
-
-    }*/
-
-    protected void clearValues() {
-        this.nameTF.setText("");
-        this.nationalityTF.setText("");
-        this.dateBirthTF.setText("");
-        this.noteTextArea.setText("");
+    protected void handleResetButton() {
+        nameTF.setText("");
+        nationalityTF.setText("");
+        dateBirthTF.setText("");
     }
 
-    protected void addListeners() {
-        submitButton.addActionListener(this);
-        resetButton.addActionListener(this);
-    }
-
-/*    @Override
-    protected void initComponent() {
-        //super.initComponent();
-        icon = new ImageIcon(getClass().getResource("javaICON.png"));
-    }*/
-
-    //@Override
-/*    protected void initComponents() {
-        //this.initComponents();
-        setValues();
-    }*/
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-       // resultBuffer = new StringBuffer();
-/*        if (src == submitButton) {
-            handleSubmitButton();
-        } else if (src == resetButton) {
-            handleResetButton();
-        } else if (src instanceof  JTextField) {
-            JTextField tf = (JTextField) src;
-            handleTextField(tf);
-        }*/
-        Object src = e.getSource();
-        StringBuffer resultBuffer = new StringBuffer();
-        if ( src == submitButton) {
-            handleSubmitButton();
-        } else if ( src == this.resetButton) {
-            clearValues();
-        }
+    public static void createAndShowGUI() {
+        PlayerFormV5 msw = new PlayerFormV5("Player Form V5");
+        msw.addComponents();
+        msw.addMenus();
+        msw.setFrameFeatures();
+        msw.addListener();
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 createAndShowGUI();
             }
         });
     }
 
-    public static void createAndShowGUI() {
-        PlayerFormV5 msw = new PlayerFormV5("PlayerFormV5");
-        //PlayerFormV5.setValues();
-        //PlayerFormV5.initComponents();
-        msw.addListeners();
-        msw.addComponents();
-        //PlayerFormV5.addMenus();
-        //PlayerFormV5.setFrameFeatures();
+    protected void addListener() {
+        submitButton.addActionListener(this);
+        resetButton.addActionListener(this);
+        playerTypeCombo.addItemListener(this);
+        javaIcon = new ImageIcon(getClass().getResource("savedImage/javaICON.png"));
+        nameTF.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    JOptionPane.showMessageDialog(null,
+                            "Name is updated to " + nameTF.getText(),
+                            "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon);
+                }
+            }
+        });
+        nationalityTF.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    JOptionPane.showMessageDialog(null,
+                            "Nationality is updated to " + nationalityTF.getText(),
+                            "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon);
+                }
+            }
+        });
+        dateBirthTF.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    JOptionPane.showMessageDialog(null,
+                            "Birthdate is updated to " + dateBirthTF.getText(),
+                            "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon);
+                }
+            }
+        });
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+        StringBuffer resultBuffer = new StringBuffer();
+        if (src == submitButton) {
+            handleSubmitButton();
+        } else if (src == resetButton) {
+            handleResetButton();
+        }
+    }
 
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            Object item = e.getItem();
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Player type is updated to "+ item.toString(),
+                    "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon);
+        }
+    }
 }
 
