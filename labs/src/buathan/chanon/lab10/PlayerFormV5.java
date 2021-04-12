@@ -1,3 +1,18 @@
+/**
+ * PlayerFormV5, add using ActionListener which program will used to
+ * display Message such as users' Submit and Reset buttons. Which provide message as
+ * sum up all of the information user selects in the current state.
+ * * Submit button to shows the current information user selected/typed.
+ * * Reset button to reset text fields(name, nation, date of birth).
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 11, 2021
+ */
+
 package buathan.chanon.lab10;
 
 import buathan.chanon.lab8.PlayerFormV4;
@@ -54,6 +69,7 @@ public class PlayerFormV5 extends PlayerFormV4 implements ActionListener, ItemLi
         });
     }
 
+    // Using ActionListener
     protected void addListener() {
         submitButton.addActionListener(this);
         resetButton.addActionListener(this);

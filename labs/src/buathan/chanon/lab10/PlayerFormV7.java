@@ -1,3 +1,16 @@
+/**
+ * PlayerFormV7, programs which using ListSelectionListener
+ * to display the message showing dialog received from such that
+ * the user can select multiple interval selections
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 11, 2021
+ */
+
 package buathan.chanon.lab10;
 
 import javax.swing.*;
@@ -30,10 +43,11 @@ public class PlayerFormV7 extends PlayerFormV6 implements ListSelectionListener 
     }
 
     @Override
+    // Using ListSelectionListener
     public void valueChanged(ListSelectionEvent e) {
-        //protected void aaddListener(ListSelectionEvent e) {
         ListSelectionModel listSelect = (ListSelectionModel) e.getSource();
         boolean listAdjust = e.getValueIsAdjusting();
+
         if (!listAdjust) {
             if (listSelect.isSelectionEmpty()) {
                 JOptionPane.showMessageDialog(

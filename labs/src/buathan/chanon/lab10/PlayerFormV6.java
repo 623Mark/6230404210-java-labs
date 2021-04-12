@@ -1,3 +1,16 @@
+/**
+ * PlayerFormV6, program which Message display whether user changing
+ * gender radio button(Male or Female)
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 11, 2021
+ */
+
+
 package buathan.chanon.lab10;
 
 import javax.swing.*;
