@@ -1,9 +1,26 @@
+/**
+ * PlayerFormV9, program which Message display whether user not type any in textfield
+ *
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 20, 2021
+ */
+
 package buathan.chanon.lab11;
 
 import buathan.chanon.lab10.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.awt.event.ActionEvent;
+import java.time.format.DateTimeFormatter;
 
 public class PlayerFormV9 extends PlayerFormV8 {
     public PlayerFormV9(String name)
@@ -27,4 +44,64 @@ public class PlayerFormV9 extends PlayerFormV8 {
             }
         });
     }
+
+
+    public void addListener(){
+        super.addListener();
+        nameTF.addActionListener(this);
+        nationalityTF.addActionListener(this);
+        dateBirthTF.addActionListener(this);
+    }
+
+    @Override
+        protected void handleSubmitButton() {
+            String gender = "";
+            if (maleRadioButton.isSelected()) {
+                gender += "male";
+            } else if (femaleRadioButton.isSelected()) {
+                gender += "female";
+            }
+            javaIcon = new ImageIcon(getClass().getResource("savedImage/javaICON.png"));
+
+        if ( nameTF.getText() == null || nationalityTF.getText() == null || dateBirthTF.getText() == null) {
+            if (nameTF.getText() == null) {
+                JOptionPane.showMessageDialog
+                        (
+                                null,
+                                "Name is empty.",
+                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                        );
+            }
+
+            if (nationalityTF.getText() == null) {
+                JOptionPane.showMessageDialog
+                        (
+                                null,
+                                "Nationality is empty.",
+                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                        );
+            }
+
+            if (dateBirthTF.getText() == null) {
+                JOptionPane.showMessageDialog
+                        (
+                                null,
+                                "Birthday is empty.",
+                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                        );
+            }
+        }
+        else {
+                //if (nameTF.getText() != null && nationalityTF.getText() != null && dateBirthTF.getText() != null) {
+                    JOptionPane.showMessageDialog
+                            (
+                                    null,
+                                    nameTF.getText() + " has nationality as " +
+                                            nationalityTF.getText() + ", birthdate as " +
+                                            dateBirthTF.getText() + ", gender as " +
+                                            gender + ", player type as " +
+                                            playerTypeCombo.getSelectedItem().toString(), "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                            );
+            }
+        }
 }

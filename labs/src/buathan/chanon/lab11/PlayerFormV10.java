@@ -1,3 +1,16 @@
+/**
+ * PlayerFormV9, program which Message display whether user not type any in textfield
+ *
+ */
+
+/*
+ * Author: Chanon Buathan
+ * ID: 623040421-0
+ * Sec: 1
+ * Date: March 20, 2021
+ */
+
+
 package buathan.chanon.lab11;
 
 import buathan.chanon.lab10.*;
