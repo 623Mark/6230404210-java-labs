@@ -22,6 +22,8 @@ import java.util.Collections;
 import java.awt.event.ActionEvent;
 import java.time.format.DateTimeFormatter;
 
+import static java.awt.SystemColor.infoText;
+
 public class PlayerFormV9 extends PlayerFormV8 {
     public PlayerFormV9(String name)
     {
@@ -46,13 +48,6 @@ public class PlayerFormV9 extends PlayerFormV8 {
     }
 
 
-    public void addListener(){
-        super.addListener();
-        nameTF.addActionListener(this);
-        nationalityTF.addActionListener(this);
-        dateBirthTF.addActionListener(this);
-    }
-
     @Override
         protected void handleSubmitButton() {
             String gender = "";
@@ -63,45 +58,50 @@ public class PlayerFormV9 extends PlayerFormV8 {
             }
             javaIcon = new ImageIcon(getClass().getResource("savedImage/javaICON.png"));
 
-        if ( nameTF.getText() == null || nationalityTF.getText() == null || dateBirthTF.getText() == null) {
-            if (nameTF.getText() == null) {
-                JOptionPane.showMessageDialog
-                        (
-                                null,
-                                "Name is empty.",
-                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                        );
-            }
+            if ( nameTF.getText().equals("") || nationalityTF.getText().equals("") || dateBirthTF.getText().equals(""))
+                {
+                    String infoText = "";
+                    if (nameTF.getText().equals("")) {
 
-            if (nationalityTF.getText() == null) {
-                JOptionPane.showMessageDialog
-                        (
-                                null,
-                                "Nationality is empty.",
-                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                        );
-            }
+                        JOptionPane.showMessageDialog
+                                (
+                                        null,
+                                        infoText + "\nName is empty.",
+                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                                );
+                    }
 
-            if (dateBirthTF.getText() == null) {
-                JOptionPane.showMessageDialog
-                        (
-                                null,
-                                "Birthday is empty.",
-                                "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                        );
+                    if (nationalityTF.getText().equals("")) {
+                        JOptionPane.showMessageDialog
+                                (
+                                        null,
+                                        infoText + "\nNationality is empty.",
+                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                                );
+                    }
+
+                    if (dateBirthTF.getText().equals("")) {
+                        JOptionPane.showMessageDialog
+                                (
+                                        null,
+                                        infoText + "\nBirthday is empty.",
+                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                                );
+                    }
+                }
+                else {
+                        if (nameTF.getText() != null && nationalityTF.getText() != null && dateBirthTF.getText() != null)
+                        {
+                            JOptionPane.showMessageDialog
+                                    (
+                                            this,
+                                            nameTF.getText() + " has nationality as " +
+                                                    nationalityTF.getText() + ", birthdate as " +
+                                                    dateBirthTF.getText() + ", gender as " +
+                                                    gender + ", player type as " +
+                                                    playerTypeCombo.getSelectedItem().toString(), "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                                    );
+                        }
+                    }
             }
-        }
-        else {
-                //if (nameTF.getText() != null && nationalityTF.getText() != null && dateBirthTF.getText() != null) {
-                    JOptionPane.showMessageDialog
-                            (
-                                    null,
-                                    nameTF.getText() + " has nationality as " +
-                                            nationalityTF.getText() + ", birthdate as " +
-                                            dateBirthTF.getText() + ", gender as " +
-                                            gender + ", player type as " +
-                                            playerTypeCombo.getSelectedItem().toString(), "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                            );
-            }
-        }
 }
