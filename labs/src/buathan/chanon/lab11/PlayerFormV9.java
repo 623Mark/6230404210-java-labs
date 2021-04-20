@@ -63,31 +63,23 @@ public class PlayerFormV9 extends PlayerFormV8 {
                     String infoText = "";
                     if (nameTF.getText().equals("")) {
 
-                        JOptionPane.showMessageDialog
-                                (
-                                        null,
-                                        infoText + "\nName is empty.",
-                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                                );
+                        infoText += "\nName is empty.";
                     }
 
                     if (nationalityTF.getText().equals("")) {
-                        JOptionPane.showMessageDialog
-                                (
-                                        null,
-                                        infoText + "\nNationality is empty.",
-                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                                );
+
+                        infoText += "\nNationality is empty.";
                     }
 
                     if (dateBirthTF.getText().equals("")) {
-                        JOptionPane.showMessageDialog
-                                (
-                                        null,
-                                        infoText + "\nBirthday is empty.",
-                                        "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
-                                );
+
+                        infoText += "\nBirthday is empty.";
                     }
+                    JOptionPane.showMessageDialog
+                            (
+                                    this,
+                            infoText, "Message", JOptionPane.INFORMATION_MESSAGE, javaIcon
+                            );
                 }
                 else {
                         if (nameTF.getText() != null && nationalityTF.getText() != null && dateBirthTF.getText() != null)
